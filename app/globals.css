@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,4 +119,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #6a00ff 0%, #8a2be2 50%, #9370db 100%);
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #6a00ff 0%,
+    #8a2be2 25%,
+    #9370db 50%,
+    #87ceeb 75%,
+    #e6e6fa 100%
+  );
+}
+
+.geometric-shape {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
 }
