@@ -1,5 +1,5 @@
 export const GENERAL_INFO = {
-  gatheringName: 'Employee Gathering 2025',
+  gatheringName: 'Gathering 2025',
   theme: 'Work as One, Wild As Fun',
   startDate: '2025-09-13',
   endDate: '2025-09-14',

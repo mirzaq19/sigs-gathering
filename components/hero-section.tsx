@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import { motion } from "framer-motion"
-import { CountdownTimer } from "./countdown-timer"
+import { motion } from 'framer-motion';
+import { CountdownTimer } from './countdown-timer';
 
 export function HeroSection() {
   return (
@@ -13,7 +13,7 @@ export function HeroSection() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        transition={{ duration: 2, ease: 'easeOut' }}
         className="absolute top-20 right-20 w-64 h-64 bg-white rounded-full"
       />
 
@@ -32,8 +32,7 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Employee{' '}
-            <span className="text-purple-200">Gathering</span>
+            Employee <span className="text-purple-200">Gathering 2025</span>
           </h1>
         </motion.div>
 
@@ -43,8 +42,9 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.4 }}
           className="text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto"
         >
-          Bergabunglah dengan kami dalam acara Employee Gathering yang penuh kegembiraan, membangun tim yang solid, dan
-          menciptakan kenangan indah bersama rekan kerja.
+          Bergabunglah dengan kami dalam acara Employee Gathering yang penuh
+          kegembiraan, membangun tim yang solid, dan menciptakan kenangan indah
+          bersama rekan kerja.
         </motion.p>
 
         <motion.div
@@ -76,5 +76,5 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
