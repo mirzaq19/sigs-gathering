@@ -2,12 +2,16 @@
 
 import { motion, stagger, Variants } from 'motion/react';
 import { Users, Building, Calendar, Star } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ATTENDEES } from '@/data/attendees.const';
+import { Attendee, ATTENDEES } from '@/data/attendees.const';
 import { GENERAL_INFO } from '@/data/general.const';
 import { countDays } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import { Input } from '@/components/ui/input';
 
 export default function AttendeesPage() {
+  const [search, setSearch] = useState('');
+  const [filteredAttendees, setFilteredAttendees] =
+    useState<Attendee[]>(ATTENDEES);
   const stats = [
     { label: 'Total Peserta', value: ATTENDEES.length, icon: Users },
     {
@@ -40,9 +44,18 @@ export default function AttendeesPage() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.2, ease: 'easeOut' },
     },
   };
+
+  useEffect(() => {
+    const lowerCaseSearch = search.toLowerCase();
+    setFilteredAttendees(
+      ATTENDEES.filter(attendee =>
+        attendee.name.toLowerCase().includes(lowerCaseSearch)
+      )
+    );
+  }, [search]);
 
   return (
     <div className="min-h-screen pt-16">
@@ -96,7 +109,7 @@ export default function AttendeesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-6"
         >
           <h2 className="text-3xl font-bold mb-4">
             Daftar Peserta Employee Gathering
@@ -108,25 +121,35 @@ export default function AttendeesPage() {
         </motion.div>
 
         <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-6 flex justify-center"
+        >
+          <Input
+            type="text"
+            placeholder="Search attendees..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="bg-white py-6 max-w-xl"
+          />
+        </motion.div>
+
+        <motion.div
+          key={filteredAttendees.length}
           variants={attendeesContainerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {ATTENDEES.map(attendee => (
+          {filteredAttendees.map(attendee => (
             <motion.div key={attendee.id} variants={attendeeVariants}>
               <div className="p-2 border rounded-lg bg-white shadow-md relative overflow-hidden group">
                 <div className="flex items-center space-x-4">
-                  <Avatar className="w-12 h-12">
-                    <AvatarImage
-                      src={`/avatars/${attendee.id}.jpg`}
-                      alt={attendee.name}
-                    />
-                    <AvatarFallback className="text-[#6A00FF] bg-[#F3E8FF]">
-                      {attendee.name[0]}
-                    </AvatarFallback>
-                  </Avatar>
+                  <div className="size-12 shrink-0 flex items-center justify-center rounded-full text-[#6A00FF] bg-[#F3E8FF]">
+                    {attendee.name[0]}
+                  </div>
                   <div className="w-full">
                     <h3 className="text-lg font-semibold text-gray-900">
                       {attendee.name}
@@ -145,6 +168,17 @@ export default function AttendeesPage() {
               </div>
             </motion.div>
           ))}
+
+          {filteredAttendees.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="col-span-1 md:col-span-2 lg:col-span-3 text-center p-6 bg-white rounded-lg border-2 border-dashed border-gray-300"
+            >
+              <p>Tidak ada peserta yang ditemukan.</p>
+            </motion.div>
+          )}
         </motion.div>
       </section>
     </div>
