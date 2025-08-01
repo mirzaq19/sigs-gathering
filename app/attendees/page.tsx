@@ -1,18 +1,13 @@
 'use client';
 
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { motion, stagger, Variants } from 'motion/react';
 import { Users, Building, Calendar, Star } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ATTENDEES } from '@/data/attendees.const';
 import { GENERAL_INFO } from '@/data/general.const';
 import { countDays } from '@/lib/utils';
 
 export default function AttendeesPage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   const stats = [
     { label: 'Total Peserta', value: ATTENDEES.length, icon: Users },
     {
@@ -30,6 +25,24 @@ export default function AttendeesPage() {
     },
     { label: 'Tingkat Antusiasme', value: '100%', icon: Star },
   ];
+
+  const attendeesContainerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: stagger(0.2),
+      },
+    },
+  };
+
+  const attendeeVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
 
   return (
     <div className="min-h-screen pt-16">
@@ -77,75 +90,62 @@ export default function AttendeesPage() {
       </section>
 
       {/* Attendees Grid */}
-      <section ref={ref} className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold mb-4">
-              Daftar Peserta Employee Gathering
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Berikut adalah daftar peserta yang akan hadir dalam acara Employee
-              Gathering. Mari berkenalan dan membangun networking yang baik!
-            </p>
-          </motion.div>
+      <section className="py-20 px-12 bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold mb-4">
+            Daftar Peserta Employee Gathering
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Berikut adalah daftar peserta yang akan hadir dalam acara Employee
+            Gathering. Mari berkenalan dan membangun networking yang baik!
+          </p>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ATTENDEES.map((attendee, index) => (
-              <motion.div
-                key={attendee.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 relative">
-                  {attendee.isOrganizer && (
-                    <div className="absolute top-4 right-4 bg-[#6A00FF] text-white px-2 py-1 rounded-full text-xs font-medium">
-                      Organizer
+        <motion.div
+          variants={attendeesContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {ATTENDEES.map(attendee => (
+            <motion.div key={attendee.id} variants={attendeeVariants}>
+              <div className="p-2 border rounded-lg bg-white shadow-md relative overflow-hidden group">
+                <div className="flex items-center space-x-4">
+                  <Avatar className="w-12 h-12">
+                    <AvatarImage
+                      src={`/avatars/${attendee.id}.jpg`}
+                      alt={attendee.name}
+                    />
+                    <AvatarFallback className="text-[#6A00FF] bg-[#F3E8FF]">
+                      {attendee.name[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="w-full">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {attendee.name}
+                    </h3>
+                  </div>
+
+                  <div className="absolute -right-[40px] top-0 bottom-0 bg-[#6A00FF] text-white flex items-center justify-center group-focus:right-0 group-active:right-0 group-hover:right-0 transition-all duration-300 ease-in-out">
+                    <div className="flex items-center space-x-2 mx-2">
+                      <Building className="size-6" />
+                      <span className="text-sm font-semibold opacity-0 group-focus:opacity-100 group-active:opacity-100 group-hover:opacity-100 transition-opacity duration-300">
+                        {attendee.company}
+                      </span>
                     </div>
-                  )}
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <Avatar className="w-16 h-16">
-                        <AvatarImage
-                          src="/placeholder.svg"
-                          alt={attendee.name}
-                        />
-                        <AvatarFallback className="bg-purple-100 text-purple-600 text-lg font-semibold">
-                          {attendee.name
-                            .split(' ')
-                            .map(n => n[0])
-                            .join('')}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-gray-900">
-                          {attendee.name}
-                        </h3>
-                        <div className="flex items-center text-gray-500 text-sm mb-1">
-                          <Building className="w-4 h-4 mr-1" />
-                          {attendee.company}
-                        </div>
-                        <div className="text-gray-600 text-sm">
-                          {attendee.division}
-                        </div>
-                        <div className="text-gray-500 text-xs mt-1">
-                          Bergabung {attendee.joinDate}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
     </div>
   );
