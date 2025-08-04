@@ -5,6 +5,13 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
+import { Bungee } from 'next/font/google';
+
+const bungee = Bungee({
+  weight: ['400'],
+});
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -16,13 +23,17 @@ const navItems = [
 ];
 
 const Navigation = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold text-[#6A00FF]">
+          <Link
+            href="/"
+            className={`text-lg md:text-2xl font-bold text-[#6A00FF] ${bungee.className}`}
+          >
             Gathering 2025
           </Link>
 
@@ -32,7 +43,12 @@ const Navigation = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-[#6A00FF] transition-colors duration-200 font-medium"
+                className={cn(
+                  `text-gray-700 hover:text-[#6A00FF] transition-colors duration-200 font-medium`,
+                  {
+                    'text-[#6A00FF]': pathname === item.href,
+                  }
+                )}
               >
                 {item.label}
               </Link>
@@ -65,7 +81,12 @@ const Navigation = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-[#6A00FF] hover:bg-purple-50 rounded-md transition-colors duration-200"
+                  className={cn(
+                    `block px-3 py-2 text-gray-700 hover:text-[#6A00FF] hover:bg-purple-50 rounded-md transition-colors duration-200`,
+                    {
+                      'text-[#6A00FF] bg-purple-50': pathname === item.href,
+                    }
+                  )}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
