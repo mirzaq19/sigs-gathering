@@ -23,7 +23,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 0.1, x: 0 }}
         transition={{ duration: 2, delay: 0.5 }}
-        className="absolute bottom-20 left-20 w-48 h-48 bg-[#6A00FF] geometric-shape"
+        className="absolute bottom-10 -left-20 md:left-20 w-48 h-48 bg-[#6A00FF] geometric-shape"
       />
 
       <motion.div

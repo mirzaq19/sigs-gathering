@@ -137,5 +137,8 @@
 }
 
 .geometric-shape {
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  /* clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); */
+
+  /* triangle */
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
