@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Bus, User, Check } from 'lucide-react';
@@ -29,13 +29,22 @@ export default function TransportationPage() {
           id: `${row}${letter}`,
           row,
           number: `${row}${letter}`,
-          isOccupied: Math.random() < 0.3, // 30% chance of being occupied
+          isOccupied: false, // initially all seats are not occupied
           isSelected: false,
         });
       });
     }
     return seatArray;
   });
+
+  useEffect(() => {
+    setSeats(prevSeats =>
+      prevSeats.map(seat => ({
+        ...seat,
+        isOccupied: Math.random() < 0.3, // 30% chance of being occupied
+      }))
+    );
+  }, []);
 
   const [selectedSeat, setSelectedSeat] = useState<string | null>(null);
 
