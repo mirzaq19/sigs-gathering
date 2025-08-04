@@ -175,10 +175,10 @@ export default function SchedulePage() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-2xl md:text-6xl font-bold mb-6">
               Event Schedule
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+            <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
               Jadwal lengkap acara Employee Gathering selama tiga hari
             </p>
           </motion.div>
@@ -194,9 +194,9 @@ export default function SchedulePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: dayIndex * 0.2 }}
-              className="mb-16"
+              className="mb-12 md:mb-16"
             >
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">
                 {day}, {15 + dayIndex} Maret
               </h2>
 
@@ -217,14 +217,14 @@ export default function SchedulePage() {
                   >
                     <Card className="hover:shadow-lg transition-shadow duration-300">
                       <CardContent className="p-6">
-                        <div className="flex items-start space-x-4">
+                        <div className="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-4">
                           <div className="flex-shrink-0">
                             <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                               <item.icon className="w-6 h-6 text-[#6A00FF]" />
                             </div>
                           </div>
                           <div className="flex-grow">
-                            <div className="flex items-center space-x-4 mb-2">
+                            <div className="flex flex-col md:flex-row items-center md:space-x-4 mb-2">
                               <span className="text-lg font-bold text-[#6A00FF]">
                                 {item.time}
                               </span>
@@ -232,10 +232,10 @@ export default function SchedulePage() {
                                 {item.title}
                               </h3>
                             </div>
-                            <p className="text-gray-600 mb-2">
+                            <p className="text-center md:text-start text-gray-600 mb-2">
                               {item.description}
                             </p>
-                            <div className="flex items-center text-sm text-gray-500">
+                            <div className="flex justify-center md:justify-start items-center text-sm text-gray-500">
                               <MapPin className="w-4 h-4 mr-1" />
                               {item.location}
                             </div>

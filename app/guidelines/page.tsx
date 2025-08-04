@@ -105,8 +105,8 @@ export default function GuidelinesPage() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Guidelines</h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-6xl font-bold mb-6">Guidelines</h1>
+            <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
               Panduan lengkap untuk Employee Gathering yang aman dan
               menyenangkan
             </p>
@@ -123,7 +123,7 @@ export default function GuidelinesPage() {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Peraturan Acara & Keselamatan
             </h2>
 
@@ -162,7 +162,7 @@ export default function GuidelinesPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-16"
           >
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Barang yang Perlu Dibawa
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -199,7 +199,7 @@ export default function GuidelinesPage() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Panduan Dress Code
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

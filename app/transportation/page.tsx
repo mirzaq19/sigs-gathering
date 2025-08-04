@@ -68,10 +68,10 @@ export default function TransportationPage() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-2xl md:text-6xl font-bold mb-6">
               Transportation
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+            <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
               Pilih kursi favorit Anda untuk perjalanan menuju lokasi Employee
               Gathering
             </p>
