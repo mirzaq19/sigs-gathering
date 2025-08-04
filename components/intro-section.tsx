@@ -4,7 +4,7 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Calendar, MapPin, Users, Sparkles } from 'lucide-react';
 
-export function IntroSection() {
+const IntroSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -77,4 +77,6 @@ export function IntroSection() {
       </div>
     </section>
   );
-}
+};
+
+export default IntroSection;

@@ -15,7 +15,7 @@ const navItems = [
   { href: '/attendees', label: 'Attendees' },
 ];
 
-export function Navigation() {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -77,4 +77,6 @@ export function Navigation() {
       </AnimatePresence>
     </nav>
   );
-}
+};
+
+export default Navigation;

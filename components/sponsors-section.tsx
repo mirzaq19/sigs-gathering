@@ -4,7 +4,7 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import { useRef } from 'react';
 
-export function SponsorsSection() {
+const SponsorsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -178,4 +178,6 @@ export function SponsorsSection() {
       </div>
     </section>
   );
-}
+};
+
+export default SponsorsSection;

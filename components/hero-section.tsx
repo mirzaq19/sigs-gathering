@@ -1,9 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CountdownTimer } from './countdown-timer';
+import CountdownTimer from './countdown-timer';
+import { GENERAL_INFO } from '@/data/general.const';
+import Image from 'next/image';
 
-export function HeroSection() {
+const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-4">
       {/* Background with gradient */}
@@ -23,6 +25,22 @@ export function HeroSection() {
         transition={{ duration: 2, delay: 0.5 }}
         className="absolute bottom-20 left-20 w-48 h-48 bg-[#6A00FF] geometric-shape"
       />
+
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 0.1, y: 0 }}
+        transition={{ duration: 2, delay: 1 }}
+        className="absolute top-60 md:top-10 left-40 md:left-10 w-64 h-64"
+      >
+        <Image
+          src="/flower.svg"
+          alt="Flower"
+          width={128}
+          height={128}
+          className="w-full h-full object-contain"
+          priority
+        />
+      </motion.div>
 
       {/* Main content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -52,7 +70,7 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <CountdownTimer />
+          <CountdownTimer eventDate={new Date(GENERAL_INFO.startDate)} />
         </motion.div>
       </div>
 
@@ -77,4 +95,6 @@ export function HeroSection() {
       </motion.div>
     </section>
   );
-}
+};
+
+export default HeroSection;
