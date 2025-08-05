@@ -4,95 +4,82 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import {
   AlertTriangle,
+  CalendarDays,
   CheckCircle,
-  Shirt,
-  Backpack,
-  Camera,
-  Sun,
+  PillBottle,
+  PocketKnife,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import Image from 'next/image';
 
 export default function GuidelinesPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   const rules = [
-    'Hormati sesama peserta dan panitia acara',
-    'Ikuti semua instruksi keselamatan dari pemandu',
-    'Tetap bersama grup yang telah ditentukan selama aktivitas',
-    'Dilarang mengonsumsi alkohol selama aktivitas outbound',
-    'Dilarang merokok di area resort',
-    'Jam tenang mulai pukul 22:00 - 07:00',
-    'Laporkan segera jika ada cedera atau masalah kesehatan',
-    'Jaga barang pribadi dan hormati milik orang lain',
+    'Membawa pakaian ganti untuk 2 hari 1 malam',
+    'Kaos Seragam Gathering (yang diberikan oleh panitia)',
+    'Sediakan pakaian adat Indonesia (Contoh: kebaya sunda, baju kurung, ulos , payas agung bali dll) beserta aksesoris pendukung',
+    'Sediakan pakaian atasan navy dengan bawahan gelap untuk kegiatan outdoor ',
+    'Membawa baju renang (Bila ingin berenang)',
+    'Membawa jaket',
+    'Membawa obat-obatan pribadi',
+    'Tumbler (tidak harus tumbler SIGS)',
+    'Peralatan mandi',
+    'Sepatu & Sandal',
   ];
 
-  const essentialItems = [
+  const dontsItems = [
     {
-      icon: Backpack,
-      item: 'Sepatu olahraga yang nyaman',
-      description: 'Sepatu yang cocok untuk aktivitas outbound',
+      item: 'Senjata Tajam',
+      description:
+        'Dilarang membawa senjata tajam seperti pisau, atau benda berbahaya lainnya.',
+      icon: PocketKnife,
     },
     {
-      icon: Shirt,
-      item: 'Pakaian sesuai cuaca',
-      description: 'Pakaian berlapis untuk berbagai kondisi',
-    },
-    {
-      icon: Sun,
-      item: 'Perlindungan dari sinar matahari',
-      description: 'Topi, kacamata hitam, dan sunscreen',
-    },
-    {
-      icon: Camera,
-      item: 'Kamera atau handphone',
-      description: 'Untuk mengabadikan momen berharga',
-    },
-    {
-      icon: Backpack,
-      item: 'Botol minum pribadi',
-      description: 'Tetap terhidrasi selama aktivitas',
-    },
-    {
-      icon: CheckCircle,
-      item: 'Obat-obatan pribadi',
-      description: 'Obat yang diperlukan secara rutin',
+      item: 'Obat-obatan Berbahaya',
+      description: 'Dilarang membawa obat-obatan terlarang atau berbahaya.',
+      icon: PillBottle,
     },
   ];
 
-  const dressCode = {
-    casual: {
-      title: 'Casual Outdoor',
-      occasions: ['Outbound', 'Team Building', 'Aktivitas Siang'],
+  const dressCodes = [
+    {
+      title: 'Hari Pertama',
       items: [
-        'Kaos dan celana olahraga',
-        'Sepatu olahraga',
-        'Jaket ringan',
-        'Topi',
+        'Pagi: Kaos Seragam Gathering',
+        'Malam: Pakaian / Kostum Karakter ',
+        'Diperbolehkan memakai celana pendek 3/4 asalkan sopan',
       ],
     },
-    dinner: {
-      title: 'Smart Casual',
-      occasions: ['Welcome Dinner', 'Gala Dinner', 'Makan Siang'],
+    {
+      title: 'Hari Kedua',
       items: [
-        'Kemeja atau blouse',
-        'Celana panjang rapi',
-        'Sepatu pantofel',
-        'Jaket atau blazer',
+        'Pagi : Kaos berwarna Navy dengan bawahan gelap, khusus yang berhijab memakai hijab berwarna gelap',
+        'Siang : Pakai baju bebas',
       ],
     },
-    evening: {
-      title: 'Santai',
-      occasions: ['Ice Breaking', 'Sharing Session', 'Waktu Bebas'],
-      items: [
-        'Pakaian santai',
-        'Jaket hangat',
-        'Sepatu nyaman',
-        'Aksesoris sesuai selera',
-      ],
-    },
-  };
+  ];
+
+  const costumeImages = [
+    '/costum/1.png',
+    '/costum/3.png',
+    '/costum/6.png',
+    '/costum/2.png',
+    '/costum/4.png',
+    '/costum/5.jpg',
+    '/costum/7.png',
+    '/costum/8.png',
+    '/costum/9.png',
+    '/costum/10.png',
+    '/costum/11.png',
+    '/costum/12.png',
+    '/costum/13.png',
+    '/costum/14.png',
+    '/costum/15.png',
+    '/costum/16.png',
+  ];
 
   return (
     <div className="min-h-screen">
@@ -107,8 +94,9 @@ export default function GuidelinesPage() {
           >
             <h1 className="text-3xl md:text-6xl font-bold mb-6">Guidelines</h1>
             <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
-              Panduan lengkap untuk Employee Gathering yang aman dan
-              menyenangkan
+              Panduan lengkap untuk Employee Gathering yang akan datang.
+              Pastikan Anda membaca dan mengikuti semua petunjuk untuk
+              memastikan acara berjalan dengan lancar.
             </p>
           </motion.div>
         </div>
@@ -124,18 +112,18 @@ export default function GuidelinesPage() {
             className="mb-16"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              Peraturan Acara & Keselamatan
+              Perlengkapan yang Perlu Dibawa
             </h2>
 
             <Alert className="mb-8 border-purple-200 bg-purple-50">
               <AlertTriangle className="h-4 w-4 text-[#6A00FF]" />
               <AlertDescription className="text-purple-800">
                 Mohon baca dan ikuti semua panduan untuk memastikan acara
-                berjalan aman dan menyenangkan bagi semua peserta.
+                berjalan dengan lancar untuk semua peserta.
               </AlertDescription>
             </Alert>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {rules.map((rule, index) => (
                 <motion.div
                   key={index}
@@ -163,10 +151,10 @@ export default function GuidelinesPage() {
             className="mb-16"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              Barang yang Perlu Dibawa
+              Perlengkapan yang tidak Boleh Dibawa
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {essentialItems.map((item, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {dontsItems.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -198,14 +186,15 @@ export default function GuidelinesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="mb-16"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Panduan Dress Code
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {Object.entries(dressCode).map(([key, code], index) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {dressCodes.map((dressCode, index) => (
                 <motion.div
-                  key={key}
+                  key={dressCode.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
@@ -214,39 +203,56 @@ export default function GuidelinesPage() {
                 >
                   <Card className="h-full">
                     <CardHeader>
-                      <CardTitle className="text-xl text-center text-[#6A00FF]">
-                        {code.title}
+                      <CardTitle className="flex gap-2 justify-center text-xl text-center text-[#6A00FF]">
+                        <CalendarDays /> {dressCode.title}
                       </CardTitle>
-                      <div className="text-center">
-                        <p className="text-sm text-gray-600 mb-2">
-                          Perfect for:
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-2">
-                          {code.occasions.map(occasion => (
-                            <span
-                              key={occasion}
-                              className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full"
-                            >
-                              {occasion}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
                     </CardHeader>
                     <CardContent>
                       <ul className="space-y-2">
-                        {code.items.map((item, itemIndex) => (
+                        {dressCode.items.map((item, itemIndex) => (
                           <li
                             key={itemIndex}
                             className="flex items-center text-gray-700"
                           >
-                            <span className="w-2 h-2 bg-[#6A00FF] rounded-full mr-3"></span>
+                            <span className="shrink-0 w-2 h-2 bg-[#6A00FF] rounded-full mr-3"></span>
                             {item}
                           </li>
                         ))}
                       </ul>
                     </CardContent>
                   </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Cosutmm Reference */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+              Referensi Dress Code
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              {costumeImages.map((image, index) => (
+                <motion.div
+                  key={image}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Image
+                    src={image}
+                    width={250}
+                    height={200}
+                    alt={image}
+                    className="h-auto w-auto rounded-lg shadow-md"
+                    priority
+                  />
                 </motion.div>
               ))}
             </div>
