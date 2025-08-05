@@ -44,7 +44,7 @@ const IntroSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Ready for{' '}
             <span className="text-[#6A00FF]">Employee Gathering?</span>
           </h2>
