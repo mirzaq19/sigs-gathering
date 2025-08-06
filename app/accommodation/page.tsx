@@ -190,7 +190,7 @@ export default function AccommodationPage() {
           >
             <Card className="bg-purple-50 border-purple-200">
               <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-[#6A00FF]">
                       {BUS_SEATS.length}
