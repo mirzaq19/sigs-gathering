@@ -40,7 +40,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex space-x-8">
             {navItems.map(item => (
               <Link
                 key={item.href}
@@ -76,7 +76,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-purple-100"
+            className="lg:hidden bg-white border-t border-purple-100"
           >
             <div className="px-4 py-2 space-y-1">
               {navItems.map(item => (
