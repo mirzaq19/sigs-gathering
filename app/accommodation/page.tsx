@@ -37,52 +37,8 @@ export default function AccommodationPage() {
         </div>
       </section>
 
-      {/* Transportation Info */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center">
-              <CardHeader>
-                <Bus className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Keberangkatan</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Jumat, 15 Maret</p>
-                <p className="text-gray-600">15:00 WIB</p>
-                <p className="text-sm text-gray-500">Terminal Pusat Kota</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <Bus className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Durasi Perjalanan</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">3 Jam</p>
-                <p className="text-sm text-gray-500">
-                  Dengan pemberhentian scenic
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <Bus className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Kepulangan</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Minggu, 17 Maret</p>
-                <p className="text-gray-600">19:00 WIB</p>
-                <p className="text-sm text-gray-500">Dari resort</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Bus Seating Arrangements */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -111,7 +67,7 @@ export default function AccommodationPage() {
       </section>
 
       {/* Hotel Room Assignments */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
