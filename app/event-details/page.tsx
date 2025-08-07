@@ -6,23 +6,29 @@ import {
   Calendar,
   Clock,
   MapPin,
-  Hotel,
   Wifi,
   Car,
   Coffee,
   Utensils,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Image from 'next/image';
 
 export default function EventDetailsPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   const eventInfo = {
-    date: '15-17 Maret 2024',
-    time: 'Jumat 18:00 - Minggu 18:00',
-    location: 'Mountain View Resort, Puncak',
-    address: 'Jl. Raya Puncak No. 123, Bogor, Jawa Barat',
+    date: '13-14 September 2025',
+    time: 'Sabtu 05:05 - Minggu 18:00',
+    location: 'Tawangmangu, Jawa Tengah',
   };
 
   const hotelAmenities = [
@@ -34,28 +40,67 @@ export default function EventDetailsPage() {
 
   const roomTypes = [
     {
-      type: 'Standard Double',
+      type: 'Janaka Deluxe Room',
       description:
-        'Kamar nyaman dengan dua tempat tidur double, pemandangan gunung',
+        'Kamar nyaman dengan pemandangan gunung dan fasilitas lengkap',
       amenities: [
-        'Pemandangan Gunung',
+        'View Gunung Lawu',
+        'Single Bed',
         'Kamar Mandi Pribadi',
-        'AC',
-        'Mini Kulkas',
+        'LCD TV',
+        'Free WiFi',
       ],
-      price: 'Termasuk dalam paket acara',
+      images: ['/rooms/janaka-1.jpeg', '/rooms/janaka-2.jpeg'],
     },
     {
-      type: 'Deluxe Suite',
-      description:
-        'Suite luas dengan ruang tamu terpisah dan fasilitas premium',
+      type: 'Moderate Shinta Room',
+      description: 'Kamar dengan fasilitas standar, cocok untuk istirahat',
       amenities: [
-        'Pemandangan Panorama',
-        'Ruang Tamu',
-        'Kamar Mandi Premium',
-        'Balkon',
+        'Pemandangan Panorama Gunung Lawu',
+        'Double Bed',
+        'Kamar mandi pribadi dengan shower',
+        'LCD TV',
+        'Free WiFi',
       ],
-      price: '+Rp 500.000 per malam upgrade',
+      images: ['/rooms/shinta-1.jpeg', '/rooms/shinta-2.jpeg'],
+    },
+    {
+      type: 'Pandawa Superior Family Room',
+      description: 'Kamar luas untuk keluarga dengan fasilitas lengkap',
+      amenities: [
+        'Pemandangan Gunung Lawu',
+        'Twin Bed',
+        'Kamar mandi pribadi dengan shower',
+        'LCD TV',
+        'Free WiFi',
+      ],
+      images: ['/rooms/pandawa-1.png', '/rooms/pandawa-2.png'],
+    },
+    {
+      type: 'Srikandi Superior Family Room',
+      description: 'Kamar luas untuk keluarga dengan fasilitas lengkap',
+      amenities: [
+        'Pemandangan Gunung Lawu',
+        'Double + single bed',
+        'Space Mazzanine',
+        'Kamar mandi pribadi dengan shower',
+        'LCD TV',
+        'Free WiFi',
+      ],
+      images: ['/rooms/srikandi-1.png', '/rooms/srikandi-2.png'],
+    },
+    {
+      type: 'Superior Familiy Plus Werkudara Room',
+      description: 'Kamar luas untuk keluarga dengan fasilitas lengkap',
+      amenities: [
+        'Pemandangan Gunung Lawu',
+        '2 Double bed',
+        'Kamar mandi pribadi dengan shower',
+        'Space Mazzanine',
+        'LCD TV',
+        'Free WiFi',
+      ],
+      images: ['/rooms/werkudara-1.webp', '/rooms/werkudara-2.webp'],
     },
   ];
 
@@ -88,7 +133,7 @@ export default function EventDetailsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           >
             <Card className="text-center">
               <CardHeader>
@@ -117,16 +162,6 @@ export default function EventDetailsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">{eventInfo.location}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <Hotel className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Alamat</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm">{eventInfo.address}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -181,10 +216,39 @@ export default function EventDetailsPage() {
                   }
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <Card className="h-full">
-                    <CardHeader>
-                      <CardTitle className="text-xl">{room.type}</CardTitle>
-                      <p className="text-gray-600">{room.description}</p>
+                  <Card className="h-full p-0 pb-6 overflow-hidden">
+                    <CardHeader className="p-0">
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {room.images.map((image, index) => (
+                            <CarouselItem key={index}>
+                              <Image
+                                src={image}
+                                alt={`${room.type} image ${index + 1}`}
+                                width={500}
+                                height={300}
+                                className="w-full h-36 md:h-60 object-cover"
+                              />
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselNext
+                          variant="outline"
+                          className="cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2 size-6"
+                        >
+                          <span className="sr-only">Next</span>
+                        </CarouselNext>
+                        <CarouselPrevious
+                          variant="outline"
+                          className="cursor-pointer absolute left-2 top-1/2 transform -translate-y-1/2 size-6"
+                        >
+                          <span className="sr-only">Previous</span>
+                        </CarouselPrevious>
+                      </Carousel>
+                      <div className="px-6 pt-2">
+                        <CardTitle className="text-xl">{room.type}</CardTitle>
+                        <p className="text-gray-600">{room.description}</p>
+                      </div>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-4">
@@ -201,11 +265,6 @@ export default function EventDetailsPage() {
                               </li>
                             ))}
                           </ul>
-                        </div>
-                        <div className="pt-4 border-t">
-                          <p className="font-semibold text-[#6A00FF]">
-                            {room.price}
-                          </p>
                         </div>
                       </div>
                     </CardContent>
