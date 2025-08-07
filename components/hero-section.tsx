@@ -49,20 +49,33 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-3 leading-tight">
             Employee <span className="text-purple-200">Gathering 2025</span>
           </h1>
         </motion.div>
 
         <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="text-lg md:text-2xl text-white/90 font-semibold mb-4"
+        >
+          {new Date(GENERAL_INFO.startDate).getDate()} -{' '}
+          {new Date(GENERAL_INFO.endDate).toLocaleString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
+        </motion.p>
+
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto"
+          className="md:text-xl text-white/90 mb-6 max-w-2xl mx-auto"
         >
-          Bergabunglah dengan kami dalam acara Employee Gathering yang penuh
-          kegembiraan, membangun tim yang solid, dan menciptakan kenangan indah
-          bersama rekan kerja.
+          Yuk ikutan acara Employee Gathering yang penuh kegembiraan, membangun
+          tim yang solid, dan menciptakan kenangan indah bersama rekan kerja.
         </motion.p>
 
         <motion.div

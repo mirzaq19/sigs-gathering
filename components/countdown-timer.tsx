@@ -53,7 +53,7 @@ const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
 
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-      <h2 className="text-2xl font-bold text-white mb-6 text-center">
+      <h2 className="text-lg md:text-2xl font-bold text-white mb-6 text-center">
         Hitung Mundur Acara
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -71,7 +71,7 @@ const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
                 initial={{ scale: 1.2, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                className="text-3xl md:text-4xl font-bold text-white block"
+                className="text-2xl md:text-4xl font-bold text-white block"
               >
                 {unit.value.toString().padStart(2, '0')}
               </motion.span>
