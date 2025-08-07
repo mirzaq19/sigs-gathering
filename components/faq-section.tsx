@@ -52,11 +52,6 @@ const FAQSection = ({ className }: FAQSectionProps) => {
         'Upss, masa gabisa sih🧐🤨 Klo beneran gabisa ikut, bisa izin hubungi ke Pak Aryo yaa',
     },
     {
-      question: 'Berangkat jam berapa ya & wajib pakai baju apa ya ?',
-      answer:
-        'Berangkat pukul 05.15 memakai kaos seragam gathering dan memakai sepatu 👕👟',
-    },
-    {
       question: 'Dresscode movie character digunakan kapan ya ? ',
       answer:
         'Dresscode movie character digunakan pada malam hari pertama saat Gala Dinner, jadi pastikan kamu sudah mempersiapkan kostum yang keren ya!',
