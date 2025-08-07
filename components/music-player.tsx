@@ -40,13 +40,20 @@ export function MusicPlayer() {
   const playlist: Track[] = [
     {
       id: 1,
-      title: 'Kungfu Fighting',
-      artist: 'Jack Black',
-      src: '/musics/kungfu-fighting.mp3', // This would be a real audio file
-      duration: 180,
+      title: 'Sunflower',
+      artist: 'Post Malone',
+      src: '/musics/sunflower.mp3', // This would be a real audio file
+      duration: 161,
     },
     {
       id: 2,
+      title: 'Kungfu Fighting',
+      artist: 'Jack Black',
+      src: '/musics/kungfu-fighting.mp3', // This would be a real audio file
+      duration: 150,
+    },
+    {
+      id: 3,
       title: 'Welcome to the Jungle',
       artist: 'Motivational Sounds',
       src: '/musics/welcome-to-the-jungle.mp3', // This would be a real audio file
@@ -61,6 +68,7 @@ export function MusicPlayer() {
     const attemptAutoPlay = async () => {
       if (!autoPlayAttempted && audioRef.current) {
         setAutoPlayAttempted(true);
+        setDuration(audioRef.current.duration);
         try {
           await audioRef.current.play();
           setIsPlaying(true);
