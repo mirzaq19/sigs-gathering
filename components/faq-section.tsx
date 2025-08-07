@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from './ui/accordion';
 import { cn } from '@/lib/utils';
+import parse from 'html-react-parser';
 
 interface FAQSectionProps {
   className?: string;
@@ -18,34 +19,52 @@ const FAQSection = ({ className }: FAQSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [faqsAccordion, setFaqsAccordion] = useState<string[]>(() =>
-    Array.from({ length: 4 }, (_, i) => `item-${i}`)
+    Array.from({ length: 10 }, (_, i) => `item-${i}`)
   );
 
   const faqs = [
     {
-      question:
-        'Kenapa nama saya tidak terdaftar dalam peserta outing sigsurabaya?',
+      question: 'Katanya mau gathering, beneran nih?',
       answer:
-        'Silahkan menghubungi panitia acara jika nama anda belum terdaftar',
+        'Bener banget! Bukan hoaks, bukan mimpi. Udah disiapin yang gokil!',
+    },
+    {
+      question: 'Gatheringnya kemana tuh, Jalan-jalan doang apa gimana?',
+      answer: 'Jalan-jalan jelas dong. Asyikkk deh yg jelassss',
+    },
+    {
+      question: 'Gathering ini ada tema nya ga sih? Ada kostum/dresscode nya?',
+      answer:
+        'Ada dong. Tema nya nanti di info lagi.🙈 Klo Dresscode nya Movie Character yaa 🎬🕸🤡',
+    },
+    {
+      question: 'Asyikkk, kapan kita capcusnya? Dimana tempatnya?',
+      answer:
+        '13-14 September 2025. Clue Tempat: adem, bisa healing... tapi bukan ke planet Namek ya.',
+    },
+    {
+      question: 'Pick Up Point nya dimana ya?',
+      answer: 'AMG Tower yaa. Klo Drop Off nanti di info lagi 🛵',
+    },
+    {
+      question: 'Kalau gabisa ikut Gathering izin gimana ?',
+      answer:
+        'Upss, masa gabisa sih🧐🤨 Klo beneran gabisa ikut, bisa izin hubungi ke Pak Aryo yaa',
     },
     {
       question: 'Berangkat jam berapa ya & wajib pakai baju apa ya ?',
       answer:
-        'Berangkat pukul 05.15 memakai kaos seragam gathering dan memakai sepatu',
+        'Berangkat pukul 05.15 memakai kaos seragam gathering dan memakai sepatu 👕👟',
     },
     {
-      question: 'Apa saja aktivitas yang akan dilakukan selama acara?',
+      question: 'Dresscode movie character digunakan kapan ya ? ',
       answer:
-        'Selama acara, peserta akan mengikuti berbagai aktivitas seperti offroad jeep, games seru, dan juga gala dinner loh.',
-    },
-    {
-      question: 'Baju movie character digunakan kapan ya ? ',
-      answer:
-        'Baju movie character digunakan pada malam hari pertama saat Gala Dinner, jadi pastikan kamu sudah mempersiapkan kostum yang keren ya!',
+        'Dresscode movie character digunakan pada malam hari pertama saat Gala Dinner, jadi pastikan kamu sudah mempersiapkan kostum yang keren ya!',
     },
     {
       question: 'Kalo ada pertanyaan lain, siapa yang bisa dihubungi?',
-      answer: 'Silahkan menghubungi panitia acara atau ketua acara (?)',
+      answer:
+        'Kalo ada yang mau ditanyain, bisa hubungi pak ketua ya, <b>Kakak Bayu (085879663547)</b> 😄',
     },
   ];
 
@@ -59,8 +78,7 @@ const FAQSection = ({ className }: FAQSectionProps) => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-[#6A00FF]">FAQ</span>
-            Section
+            <span className="text-[#6A00FF]">FAQ</span> Section
           </h2>
 
           <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -94,7 +112,7 @@ const FAQSection = ({ className }: FAQSectionProps) => {
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-800 p-4 bg-violet-50">
-                    {faq.answer}
+                    {parse(faq.answer)}
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
