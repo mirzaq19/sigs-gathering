@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
-import { Calendar, MapPin, Users, Sparkles } from 'lucide-react';
+import { Gift, MapPin, Sparkles } from 'lucide-react';
 
 const IntroSection = () => {
   const ref = useRef(null);
@@ -10,22 +10,16 @@ const IntroSection = () => {
 
   const features = [
     {
-      icon: Calendar,
-      title: 'Team Building Experience',
-      description:
-        'Tiga hari penuh aktivitas team building yang menyenangkan dan membangun kekompakan tim.',
-    },
-    {
       icon: MapPin,
       title: 'Lokasi Menawan',
       description:
-        'Nikmati pemandangan alam yang indah di lokasi resort yang telah dipilih khusus untuk acara ini.',
+        'Nikmati pemandangan alam yang indah dan suasana yang menyegarkan di lokasi acara.',
     },
     {
-      icon: Users,
-      title: 'Networking Session',
+      icon: Gift,
+      title: 'Doorprize Menarik',
       description:
-        'Kesempatan emas untuk berinteraksi dengan kolega dari berbagai divisi dan membangun relasi.',
+        'Dapatkan kesempatan untuk memenangkan doorprize menarik yang telah disiapkan khusus untuk teman-teman peserta.',
     },
     {
       icon: Sparkles,
@@ -55,7 +49,7 @@ const IntroSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
