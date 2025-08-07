@@ -245,7 +245,7 @@ export function MusicPlayer() {
 
       {/* Floating Music Player */}
       <motion.div
-        className="fixed bottom-12 left-0 right-0 z-50 sm:bottom-6 sm:right-6 flex flex-col items-end px-2"
+        className="fixed bottom-30 left-0 right-0 z-50 sm:bottom-6 sm:right-6 flex flex-col items-end px-2"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, delay: 1 }}
