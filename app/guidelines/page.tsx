@@ -17,12 +17,10 @@ export default function GuidelinesPage() {
   const rules = [
     'Membawa pakaian ganti untuk 2 hari 1 malam',
     'Kaos Seragam Gathering (yang diberikan oleh panitia)',
-    'Sediakan pakaian adat Indonesia (Contoh: kebaya sunda, baju kurung, ulos , payas agung bali dll) beserta aksesoris pendukung',
-    'Sediakan pakaian atasan navy dengan bawahan gelap untuk kegiatan outdoor ',
+    'Siapkan pakaian / kostum karakter (Contoh: Superhero, Kartun, dll)',
     'Membawa baju renang (Bila ingin berenang)',
     'Membawa jaket',
     'Membawa obat-obatan pribadi',
-    'Tumbler (tidak harus tumbler SIGS)',
     'Peralatan mandi',
     'Sepatu & Sandal',
   ];
