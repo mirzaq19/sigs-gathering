@@ -3,10 +3,17 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Gift, MapPin, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 
 const IntroSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const companyImages = [
+    { src: '/images/sigs-2.png', width: 80, height: 90 },
+    { src: '/images/ags.png', width: 90, height: 80 },
+    { src: '/images/aas.png', width: 120, height: 90 },
+  ];
 
   const features = [
     {
@@ -36,18 +43,31 @@ const IntroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-6"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Ready for{' '}
-            <span className="text-[#6A00FF]">Employee Gathering?</span>
+            <span className="text-[#6A00FF]">Employee Gathering 2025?</span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Bergabunglah dalam acara Employee Gathering yang luar biasa ini.
+            Yuk ikutan di acara TIC Employee Gathering 2025 yang luar biasa ini.
             Saatnya membangun tim yang lebih solid, bersenang-senang bersama,
             dan menciptakan kenangan indah dengan seluruh rekan kerja.
           </p>
         </motion.div>
+
+        <div className="flex flex-wrap gap-6 justify-center mb-6">
+          {companyImages.map((image, index) => (
+            <Image
+              key={index}
+              src={image.src}
+              alt={`Company Logo ${index + 1}`}
+              width={image.width}
+              height={image.height}
+              className=""
+            />
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
