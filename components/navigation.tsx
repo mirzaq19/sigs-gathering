@@ -19,6 +19,7 @@ const navItems = [
   { href: '/event-details', label: 'Event Details' },
   // { href: '/transportation', label: 'Transportation' },
   { href: '/accommodation', label: 'Accommodation' },
+  { href: '/teams', label: 'Teams' },
   { href: '/schedule', label: 'Schedule' },
   { href: '/guidelines', label: 'Guidelines' },
   { href: '/attendees', label: 'Attendees' },
