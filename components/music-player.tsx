@@ -387,7 +387,7 @@ export function MusicPlayer() {
         {/* Main Floating Button - Responsive */}
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="relative w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#6A00FF] to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+          className="relative size-14 sm:size-16 bg-gradient-to-br from-[#6A00FF] to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center mr-4 group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -403,7 +403,7 @@ export function MusicPlayer() {
 
           {/* Music icon with play/pause overlay */}
           <div className="relative">
-            <Music className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            <Music className="size-6 sm:size-8 text-white" />
             {isPlaying && (
               <motion.div
                 className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-400 rounded-full border-2 border-white"
@@ -423,7 +423,7 @@ export function MusicPlayer() {
           {!isExpanded && (
             <motion.div
               onClick={togglePlay}
-              className="absolute -top-1.5 -left-1.5 sm:-top-2 sm:-left-2 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
+              className="absolute -top-1.5 -left-1.5 sm:-top-2 sm:-left-2 size-8 sm:size-10 bg-white rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, scale: 0 }}
@@ -431,11 +431,11 @@ export function MusicPlayer() {
               transition={{ delay: 0.5 }}
             >
               {isLoading ? (
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 border-2 border-[#6A00FF] border-t-transparent rounded-full animate-spin" />
+                <div className="size-3 sm:size-4 border-2 border-[#6A00FF] border-t-transparent rounded-full animate-spin" />
               ) : isPlaying ? (
-                <Pause className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#6A00FF]" />
+                <Pause className="size-3 sm:size-4 text-[#6A00FF]" />
               ) : (
-                <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#6A00FF] ml-0.5" />
+                <Play className="size-3 sm:size-4 text-[#6A00FF] ml-0.5" />
               )}
             </motion.div>
           )}
