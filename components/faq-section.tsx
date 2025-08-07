@@ -24,7 +24,7 @@ const FAQSection = ({ className }: FAQSectionProps) => {
 
   const faqs = [
     {
-      question: 'Katanya mau gathering, beneran nih?',
+      question: 'Katanya mau Gathering, beneran nih?',
       answer:
         'Bener banget! Bukan hoaks, bukan mimpi. Udah disiapin yang gokil!',
     },
@@ -87,38 +87,34 @@ const FAQSection = ({ className }: FAQSectionProps) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <Accordion
-            type="multiple"
-            className="w-full space-y-4"
-            value={faqsAccordion}
-            onValueChange={setFaqsAccordion}
-          >
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={faq.question}
-                initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+        <Accordion
+          type="multiple"
+          className="w-full space-y-4"
+          value={faqsAccordion}
+          onValueChange={setFaqsAccordion}
+        >
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={faq.question}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <AccordionItem
+                className="rounded-md overflow-hidden shadow-md"
+                key={index}
+                value={`item-${index}`}
               >
-                <AccordionItem
-                  className="rounded-md overflow-hidden shadow-md"
-                  key={index}
-                  value={`item-${index}`}
-                >
-                  <AccordionTrigger className="cursor-pointer md:text-lg font-semibold text-gray-900 bg-white px-4 py-3 transition-colors hover:bg-gray-50">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-800 p-4 bg-violet-50">
-                    {parse(faq.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              </motion.div>
-            ))}
-          </Accordion>
-        </div>
+                <AccordionTrigger className="cursor-pointer text-lg font-semibold text-gray-900 bg-white px-4 py-3 transition-colors hover:bg-gray-50">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-800 p-4 bg-violet-50">
+                  {parse(faq.answer)}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
