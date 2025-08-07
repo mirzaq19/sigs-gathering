@@ -115,10 +115,10 @@ export default function EventDetailsPage() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl md:text-6xl font-bold mb-6">
               Event Details
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+            <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
               Semua informasi yang perlu Anda ketahui tentang Employee Gathering
               kami
             </p>
@@ -172,16 +172,16 @@ export default function EventDetailsPage() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Hotel & Akomodasi
             </h2>
 
             {/* Hotel Amenities */}
             <div className="bg-purple-100 rounded-xl p-8 mb-12">
-              <h3 className="text-2xl font-semibold mb-6 text-center">
+              <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center">
                 Fasilitas Resort
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {hotelAmenities.map((amenity, index) => (
                   <motion.div
                     key={amenity.name}
@@ -197,7 +197,9 @@ export default function EventDetailsPage() {
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                       <amenity.icon className="w-8 h-8 text-[#6A00FF]" />
                     </div>
-                    <p className="font-medium">{amenity.name}</p>
+                    <p className="text-sm md:text-base font-medium">
+                      {amenity.name}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -246,8 +248,12 @@ export default function EventDetailsPage() {
                         </CarouselPrevious>
                       </Carousel>
                       <div className="px-6 pt-2">
-                        <CardTitle className="text-xl">{room.type}</CardTitle>
-                        <p className="text-gray-600">{room.description}</p>
+                        <CardTitle className="text-lg md:text-xl">
+                          {room.type}
+                        </CardTitle>
+                        <p className="text-sm md:text-base text-gray-600">
+                          {room.description}
+                        </p>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -258,9 +264,9 @@ export default function EventDetailsPage() {
                             {room.amenities.map(amenity => (
                               <li
                                 key={amenity}
-                                className="text-gray-600 flex items-center"
+                                className="text-gray-600 flex items-center text-sm md:text-base"
                               >
-                                <span className="w-2 h-2 bg-[#6A00FF] rounded-full mr-2"></span>
+                                <span className="shrink-0 size-2 bg-[#6A00FF] rounded-full mr-2"></span>
                                 {amenity}
                               </li>
                             ))}
