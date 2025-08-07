@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Users, Bus } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { JEEP_TEAMS, GAME_TEAMS } from '@/data/teams.const';
+import { PERMISSIONS } from '@/data/permission.const';
 
 export default function TeamsPage() {
   return (
@@ -27,7 +28,7 @@ export default function TeamsPage() {
       </section>
 
       {/* Jeep Assignment */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -45,7 +46,13 @@ export default function TeamsPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 ${
+              !PERMISSIONS.jeep
+                ? 'relative max-h-64 overflow-hidden rounded'
+                : ''
+            }`}
+          >
             {JEEP_TEAMS.map((jeep, index) => (
               <motion.div
                 key={jeep.id}
@@ -91,12 +98,21 @@ export default function TeamsPage() {
                 </Card>
               </motion.div>
             ))}
+
+            {!PERMISSIONS.jeep && (
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-full h-full bg-gray-400/60 backdrop-blur-md absolute inset-0"></div>
+                <span className="relative text-center text-3xl font-bold text-white drop-shadow-lg text-outlni text-shadow-2xs">
+                  Coming Soon
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Game Assignment */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -115,7 +131,13 @@ export default function TeamsPage() {
           </motion.div>
 
           {/* Game groups will be displayed here */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 ${
+              !PERMISSIONS.games
+                ? 'relative max-h-64 overflow-hidden rounded'
+                : ''
+            }`}
+          >
             {GAME_TEAMS.map((team, index) => (
               <motion.div
                 key={team.id}
@@ -160,6 +182,15 @@ export default function TeamsPage() {
                 </Card>
               </motion.div>
             ))}
+
+            {!PERMISSIONS.games && (
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-full h-full bg-gray-400/60 backdrop-blur-md absolute inset-0"></div>
+                <span className="relative text-center text-3xl font-bold text-white drop-shadow-lg text-outlni text-shadow-2xs">
+                  Coming Soon
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>

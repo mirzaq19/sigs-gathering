@@ -13,6 +13,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BUS_SEATS, BusSeat, ROOMS } from '@/data/accommodations.const';
+import { PERMISSIONS } from '@/data/permission.const';
 
 export default function AccommodationPage() {
   return (
@@ -82,7 +83,13 @@ export default function AccommodationPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 ${
+              !PERMISSIONS.hotel
+                ? 'relative max-h-64 overflow-hidden rounded'
+                : ''
+            }`}
+          >
             {ROOMS.map((room, index) => (
               <motion.div
                 key={room.roomNumber}
@@ -90,7 +97,7 @@ export default function AccommodationPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 py-4 gap-2">
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300  overflow-hidden py-4 gap-2">
                   <CardHeader className="px-4">
                     <div className="flex items-center justify-between">
                       <CardTitle className="md:text-lg flex items-center">
@@ -137,6 +144,15 @@ export default function AccommodationPage() {
                 </Card>
               </motion.div>
             ))}
+
+            {!PERMISSIONS.hotel && (
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-full h-full bg-gray-400/60 backdrop-blur-md absolute inset-0"></div>
+                <span className="relative text-center text-3xl font-bold text-white drop-shadow-lg text-outlni text-shadow-2xs">
+                  Coming Soon
+                </span>
+              </div>
+            )}
           </div>
 
           <motion.div
@@ -195,8 +211,14 @@ const BusLayout = ({ assignments }: { assignments: BusSeat[] }) => {
         <span className="font-bold">Layout Bus</span>
       </div>
 
-      <div className="overflow-x-auto">
-        <div className="min-w-md max-w-lg mx-auto mb-6">
+      <div
+        className={`${
+          !PERMISSIONS.bus
+            ? 'relative overflow-hidden rounded-lg max-h-96'
+            : 'overflow-x-auto relative'
+        }`}
+      >
+        <div className="min-w-md max-w-lg mx-auto mb-1 ">
           <div className="flex justify-center items-center mb-4">
             <div className="bg-white text-xs flex justify-center items-center gap-1 text-gray-600 py-2 px-3 border border-gray-200 rounded">
               <TvMinimalPlay className="size-4 text-gray-600" /> TV
@@ -328,6 +350,15 @@ const BusLayout = ({ assignments }: { assignments: BusSeat[] }) => {
             ))}
           </div>
         </div>
+        {/* Backdrop blue coming soon */}
+        {!PERMISSIONS.bus && (
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="w-full h-full bg-gray-400/60 backdrop-blur-md absolute inset-0"></div>
+            <span className="relative text-3xl font-bold text-white drop-shadow-lg">
+              Coming Soon
+            </span>
+          </div>
+        )}
       </div>
       {/* Legend */}
       <div className="flex justify-center space-x-4 mt-6 text-sm">
