@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 import {
   AlertTriangle,
   CalendarDays,
@@ -12,11 +11,9 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import Image from 'next/image';
+import FAQSection from '@/components/faq-section';
 
 export default function GuidelinesPage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   const rules = [
     'Membawa pakaian ganti untuk 2 hari 1 malam',
     'Kaos Seragam Gathering (yang diberikan oleh panitia)',
@@ -102,14 +99,14 @@ export default function GuidelinesPage() {
         </div>
       </section>
 
-      {/* Event Rules */}
-      <section ref={ref} className="py-20 bg-white">
+      {/* What to bring */}
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-16"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Perlengkapan yang Perlu Dibawa
@@ -128,11 +125,8 @@ export default function GuidelinesPage() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, x: 0 }
-                      : { opacity: 0, x: index % 2 === 0 ? -20 : 20 }
-                  }
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg"
                 >
@@ -142,13 +136,17 @@ export default function GuidelinesPage() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* What to Bring */}
+      {/* What don't to Bring */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-16"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Perlengkapan yang tidak Boleh Dibawa
@@ -158,11 +156,8 @@ export default function GuidelinesPage() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.9 }
-                  }
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <Card className="h-full hover:shadow-lg transition-shadow duration-300">
@@ -180,26 +175,31 @@ export default function GuidelinesPage() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Dress Code */}
+      <FAQSection className="py-16 bg-white" />
+
+      {/* Dress Code */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-16"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
               Panduan Dress Code
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
               {dressCodes.map((dressCode, index) => (
                 <motion.div
                   key={dressCode.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
                   <Card className="h-full">
                     <CardHeader>
@@ -225,11 +225,16 @@ export default function GuidelinesPage() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Cosutmm Reference */}
+      {/* Costume Reference */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
@@ -240,9 +245,8 @@ export default function GuidelinesPage() {
                 <motion.div
                   key={image}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <Image
