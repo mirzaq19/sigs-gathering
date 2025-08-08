@@ -22,7 +22,7 @@ const navItems = [
   // { href: '/teams', label: 'Teams' },
   // { href: '/schedule', label: 'Schedule' },
   { href: '/guidelines', label: 'Guidelines' },
-  // { href: '/attendees', label: 'Attendees' },
+  { href: '/attendees', label: 'Attendees' },
 ];
 
 const Navigation = () => {
