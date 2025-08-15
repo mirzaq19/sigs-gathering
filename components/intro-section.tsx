@@ -9,11 +9,7 @@ const IntroSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const companyImages = [
-    { src: '/images/sigs-2.png', width: 80, height: 90 },
-    { src: '/images/ags.png', width: 90, height: 80 },
-    { src: '/images/aas.png', width: 120, height: 90 },
-  ];
+  const companyImages = [{ src: '/images/sigs-2.png', width: 150, height: 90 }];
 
   const features = [
     {
