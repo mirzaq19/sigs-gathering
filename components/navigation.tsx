@@ -16,7 +16,7 @@ const bungee = Bungee({
 
 const navItems = [
   { href: '/', label: 'Home' },
-  // { href: '/event-details', label: 'Event Details' },
+  { href: '/event-details', label: 'Event Details' },
   // { href: '/transportation', label: 'Transportation' },
   // { href: '/accommodation', label: 'Accommodation' },
   // { href: '/teams', label: 'Teams' },

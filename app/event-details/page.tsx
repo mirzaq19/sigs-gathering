@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'motion/react';
+import { motion, stagger, useInView, Variants } from 'motion/react';
 import { useRef } from 'react';
 import {
   Calendar,
@@ -10,6 +10,13 @@ import {
   Car,
   Coffee,
   Utensils,
+  Gift,
+  Bus,
+  Camera,
+  HatGlasses,
+  Gamepad2,
+  MicVocal,
+  LoaderPinwheel,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -25,11 +32,46 @@ export default function EventDetailsPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const eventInfo = {
-    date: '13-14 September 2025',
-    time: 'Sabtu 05:05 - Minggu 18:00',
-    location: 'Tawangmangu, Jawa Tengah',
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: stagger(0.1),
+      },
+    },
   };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.1, ease: 'easeOut' },
+    },
+  };
+
+  const places = [
+    {
+      name: 'Offroad Jeep Kemuning',
+      image: '/places/jeep.jpg',
+    },
+    {
+      name: 'RM Soewatu (Resto & Cafe)',
+      image: '/places/soewatu.jpg',
+    },
+    {
+      name: 'Hotel Jawa Dwipa Heritage Resort & Convention',
+      image: '/places/jawadwipa.jpg',
+    },
+    {
+      name: 'Rumah Atsiri Indonesia',
+      image: '/places/atsiri.jpg',
+    },
+    {
+      name: 'RM Godong Gedang',
+      image: '/places/godong_gedang.jpg',
+    },
+  ];
 
   const hotelAmenities = [
     { icon: Wifi, name: 'Free WiFi' },
@@ -104,6 +146,44 @@ export default function EventDetailsPage() {
     },
   ];
 
+  const events = [
+    {
+      icon: Gift,
+      title: 'Doorprize',
+      value: 'Berbagai hadiah menarik untuk peserta',
+    },
+    {
+      icon: Bus,
+      title: 'Offroad Jeep',
+      value: 'Petualangan seru menjelajahi alam Tawangmangu',
+    },
+    {
+      icon: Camera,
+      title: 'Explore Taman Atsiri',
+      value: 'Menikmati keindahan alam',
+    },
+    {
+      icon: HatGlasses,
+      title: 'Best Costume of Gala Dinner',
+      value: 'Menampilkan kostum terbaik',
+    },
+    {
+      icon: Gamepad2,
+      title: 'Team Games',
+      value: 'Bersaing dalam permainan seru',
+    },
+    {
+      icon: LoaderPinwheel,
+      title: 'Parade Costume',
+      value: 'Show off kostum movie karakter mu',
+    },
+    {
+      icon: MicVocal,
+      title: 'Sing & Togetherness',
+      value: 'Bernyanyi dan menikmati kebersamaan',
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -119,8 +199,8 @@ export default function EventDetailsPage() {
               Event Details
             </h1>
             <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
-              Semua informasi yang perlu Anda ketahui tentang Employee Gathering
-              kami
+              Semua informasi yang perlu kamu ketahui tentang acara Employee
+              Gathering 2025
             </p>
           </motion.div>
         </div>
@@ -129,45 +209,62 @@ export default function EventDetailsPage() {
       {/* Event Information */}
       <section ref={ref} className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
+            Event Details
+          </h2>
+          <p className="text-gray-600 text-center mb-8">
+            Nikmati pengalaman tak terlupakan di Employee Gathering 2025 dengan
+            berbagai kegiatan menarik ini.
+          </p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           >
-            <Card className="text-center">
-              <CardHeader>
-                <Calendar className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Tanggal</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{eventInfo.date}</p>
-              </CardContent>
-            </Card>
+            {events.map(({ icon: Icon, title, value }, index) => (
+              <Card className="text-center gap-3" key={title}>
+                <CardHeader>
+                  <Icon className="size-10 text-[#6A00FF] mx-auto mb-2" />
+                  <CardTitle>
+                    {index + 1}. {title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{value}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </motion.div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <Clock className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Jam</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{eventInfo.time}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <MapPin className="w-8 h-8 text-[#6A00FF] mx-auto mb-2" />
-                <CardTitle>Lokasi</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{eventInfo.location}</p>
-              </CardContent>
-            </Card>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
+              Lokasi Acara
+            </h2>
+            <div className="grid grid-cols-1 gap-3">
+              {places.map(place => (
+                <Card key={place.name} className="p-0 gap-2">
+                  <Image
+                    src={place.image}
+                    alt={place.name}
+                    width={500}
+                    height={300}
+                    className="w-full h-full object-cover rounded-t-lg"
+                  />
+                  <CardContent className="mb-2">
+                    <h3 className="text-lg font-semibold mb-2">{place.name}</h3>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </motion.div>
 
           {/* Hotel Information */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -176,7 +273,6 @@ export default function EventDetailsPage() {
               Hotel & Akomodasi
             </h2>
 
-            {/* Hotel Amenities */}
             <div className="bg-purple-100 rounded-xl p-8 mb-12">
               <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center">
                 Fasilitas Resort
@@ -205,7 +301,6 @@ export default function EventDetailsPage() {
               </div>
             </div>
 
-            {/* Room Types */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {roomTypes.map((room, index) => (
                 <motion.div
@@ -278,7 +373,7 @@ export default function EventDetailsPage() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
     </div>
