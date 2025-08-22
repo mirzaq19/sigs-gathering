@@ -20,7 +20,7 @@ const navItems = [
   // { href: '/transportation', label: 'Transportation' },
   // { href: '/accommodation', label: 'Accommodation' },
   // { href: '/teams', label: 'Teams' },
-  // { href: '/schedule', label: 'Schedule' },
+  { href: '/schedule', label: 'Schedule' },
   { href: '/guidelines', label: 'Guidelines' },
   { href: '/attendees', label: 'Attendees' },
 ];

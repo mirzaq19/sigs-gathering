@@ -34,7 +34,7 @@ export default function SchedulePage() {
               Event Schedule
             </h1>
             <p className="md:text-2xl opacity-90 max-w-3xl mx-auto">
-              Jadwal lengkap acara Employee Gathering selama tiga hari
+              Jadwal lengkap acara Employee Gathering 2025
             </p>
           </motion.div>
         </div>
