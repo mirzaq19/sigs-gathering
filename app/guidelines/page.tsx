@@ -3,10 +3,13 @@
 import { motion } from 'motion/react';
 import {
   AlertTriangle,
+  Banknote,
   CalendarDays,
   CheckCircle,
+  PawPrint,
   PillBottle,
   PocketKnife,
+  SwatchBook,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -16,26 +19,42 @@ import FAQSection from '@/components/faq-section';
 export default function GuidelinesPage() {
   const rules = [
     'Membawa pakaian ganti untuk 2 hari 1 malam',
-    'Kaos Seragam Gathering (yang diberikan oleh panitia)',
-    'Siapkan pakaian / kostum karakter (Contoh: Superhero, Kartun, dll)',
+    'Kaos Gathering (yang diberikan oleh panitia)',
+    'Menyiapkan Movie Character Costume & Accesoris (optional)',
     'Membawa baju renang (Bila ingin berenang)',
-    'Membawa jaket',
+    'Membawa Jaket',
     'Membawa obat-obatan pribadi',
-    'Peralatan mandi',
-    'Sepatu & Sandal',
+    'Membawa baju renang (Bila ingin berenang)',
+    'Alas kaki yang nyaman',
+    'Membawa plastik / kresek kecil untuk melindungi barang berharga seperti HP, earphone, powerbank saat offroad jeep',
   ];
 
   const dontsItems = [
     {
-      item: 'Senjata Tajam',
-      description:
-        'Dilarang membawa senjata tajam seperti pisau, atau benda berbahaya lainnya.',
+      item: '🚫Benda berbahaya',
+      description: 'Pisau, senjata tajam, benda mudah meledak, dll.',
       icon: PocketKnife,
     },
     {
-      item: 'Obat-obatan Berbahaya',
-      description: 'Dilarang membawa obat-obatan terlarang atau berbahaya.',
+      item: '🚫Zat terlarang',
+      description: 'Narkoba, obat tanpa izin, dll.',
       icon: PillBottle,
+    },
+    {
+      item: '🚫Barang bernilai tinggi',
+      description:
+        'Emas, uang tunai berlebih (tidak diperlukan? Tinggal di rumah aja).',
+      icon: Banknote,
+    },
+    {
+      item: '🚫Binatang peliharaan',
+      description: 'Mohon ditinggal di rumah yaa.',
+      icon: PawPrint,
+    },
+    {
+      item: '🚫Barang pribadi berpotensi menimbulkan masalah',
+      description: ' Alat pancing, alat masak pribadi dll.',
+      icon: SwatchBook,
     },
   ];
 
@@ -43,17 +62,14 @@ export default function GuidelinesPage() {
     {
       title: 'Hari Pertama',
       items: [
-        'Pagi: Kaos Seragam Gathering',
-        'Malam: Pakaian / Kostum Karakter ',
+        'Pagi : Kaos Seragam Gathering bawahan dan atasan gelap',
+        'Malam : Movie Character Costume',
         'Diperbolehkan memakai celana pendek 3/4 asalkan sopan',
       ],
     },
     {
       title: 'Hari Kedua',
-      items: [
-        'Pagi : Kaos berwarna Navy dengan bawahan gelap, khusus yang berhijab memakai hijab berwarna gelap',
-        'Siang : Pakai baju bebas',
-      ],
+      items: ['Baju bebas rapi sopan'],
     },
   ];
 
@@ -98,7 +114,7 @@ export default function GuidelinesPage() {
       </section>
 
       {/* What to bring */}
-      {/* <section className="py-16 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -135,10 +151,10 @@ export default function GuidelinesPage() {
             </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
 
       {/* What don't to Bring */}
-      {/* <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -147,7 +163,7 @@ export default function GuidelinesPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              Perlengkapan yang tidak Boleh Dibawa
+              ❗Perlengkapan yang tidak Boleh Dibawa❗
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {dontsItems.map((item, index) => (
@@ -174,12 +190,12 @@ export default function GuidelinesPage() {
             </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
 
       <FAQSection className="py-16 bg-white" />
 
       {/* Dress Code */}
-      {/* <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -224,10 +240,10 @@ export default function GuidelinesPage() {
             </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
 
       {/* Costume Reference */}
-      {/* <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -260,7 +276,7 @@ export default function GuidelinesPage() {
             </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
