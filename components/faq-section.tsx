@@ -44,7 +44,7 @@ const FAQSection = ({ className }: FAQSectionProps) => {
     },
     {
       question: 'Pick Up Point nya dimana ya?',
-      answer: 'AMG Tower yaa. Klo Drop Off nanti di info lagi 🛵',
+      answer: 'Pickup Point dan Drop Off hanya di AMG Tower yaa.. 🛵',
     },
     {
       question: 'Kalau gabisa ikut Gathering izin gimana ?',

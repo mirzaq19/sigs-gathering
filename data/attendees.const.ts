@@ -1,11 +1,11 @@
 export interface Attendee {
   id: number;
   name: string;
-  company: 'SIGS' | 'AGS' | 'AAS';
+  company: 'SIGS' | 'AGS' | 'AAS' | 'SIG';
 }
 
 export const ATTENDEES: Attendee[] = [
-  { id: 1, name: 'RB Ernesto Arya', company: 'SIGS' },
+  { id: 1, name: 'Bapak Ibu Direksi', company: 'SIGS' },
   { id: 2, name: 'Tiara Puspawarni Mulyono', company: 'SIGS' },
   { id: 3, name: 'Mohamad Muslih Fiqri', company: 'SIGS' },
   { id: 4, name: 'Bari Noor Rahman', company: 'SIGS' },
@@ -60,4 +60,5 @@ export const ATTENDEES: Attendee[] = [
   { id: 53, name: 'Tri Maryanti', company: 'SIGS' },
   { id: 54, name: 'Mei Rizda Brilianti', company: 'SIGS' },
   { id: 55, name: 'Dinda Astri', company: 'SIGS' },
+  { id: 56, name: 'Zaimul Ariffin', company: 'SIG' },
 ];
