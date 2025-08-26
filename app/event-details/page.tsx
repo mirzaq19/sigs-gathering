@@ -254,6 +254,7 @@ export default function EventDetailsPage() {
                     width={500}
                     height={300}
                     className="w-full h-full object-cover rounded-t-lg"
+                    priority
                   />
                   <CardContent className="mb-2">
                     <h3 className="text-lg font-semibold mb-2">{place.name}</h3>
