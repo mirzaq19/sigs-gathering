@@ -1,8 +1,9 @@
 'use client';
 
-import { motion, useInView } from 'motion/react';
+import { motion, stagger, useInView, Variants } from 'motion/react';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 const SponsorsSection = () => {
   const ref = useRef(null);
@@ -10,40 +11,112 @@ const SponsorsSection = () => {
 
   const sponsors = [
     {
-      name: 'Tech Corp',
-      logo: 'https://placehold.co/300x200/EEE/FFFFFF',
+      name: 'PT. Kromtekindo Utama',
+      logo: '/sponsors/kromtekindo.png',
       tier: 'platinum',
     },
     {
-      name: 'Digital Solutions',
-      logo: 'https://placehold.co/300x200/EEE/FFFFFF',
+      name: 'PT. Unitama Analitika Perkasa',
+      logo: '/sponsors/unitama.jpeg',
       tier: 'gold',
     },
     {
-      name: 'Innovation Hub',
-      logo: 'https://placehold.co/300x200/EEE/FFFFFF',
-      tier: 'gold',
-    },
-    {
-      name: 'Future Systems',
-      logo: 'https://placehold.co/300x200/EEE/FFFFFF',
+      name: 'PT. Prolabios Mitra Analitika',
+      logo: '/sponsors/prolabios.png',
       tier: 'silver',
     },
     {
-      name: 'Smart Tech',
-      logo: 'https://placehold.co/300x200/EEE/FFFFFF',
+      name: 'PT. Equiva Ligand Indonesia',
+      logo: '/sponsors/equiva.jpg',
       tier: 'silver',
     },
     {
-      name: 'Global Networks',
-      logo: 'https://placehold.co/300x200/EEE/FFFFFF',
+      name: 'PT. Laborindo Sarana',
+      logo: '/sponsors/laborindo.png',
       tier: 'silver',
+    },
+    {
+      name: 'PT. Ditek Jaya',
+      logo: '/sponsors/ditek.png',
+      tier: 'silver',
+    },
+    {
+      name: 'PT. Radin Nugrah Daksatama',
+      logo: '/sponsors/radin.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Agarindo Biological Company',
+      logo: '/sponsors/agarindo.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Global Satria Aji',
+      logo: '/sponsors/gsa.jpeg',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. New Praktika Alkesindo',
+      logo: '/sponsors/npa.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Berca Niaga Medika',
+      logo: '/sponsors/bnm.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Multi Eka Chemicalindo',
+      logo: '/sponsors/mec.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Dipa Puspa Labsains',
+      logo: '/sponsors/dipa.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Elo Karsa Utama',
+      logo: '/sponsors/elokarsa.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Sartonet Filtrasi Indonesia',
+      logo: '/sponsors/sartonet.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'CV. Biotek Mandiri',
+      logo: '/sponsors/biotek.png',
+      tier: 'bronze',
     },
   ];
 
   const platinumSponsors = sponsors.filter(s => s.tier === 'platinum');
   const goldSponsors = sponsors.filter(s => s.tier === 'gold');
   const silverSponsors = sponsors.filter(s => s.tier === 'silver');
+  const bronzeSponsors = sponsors.filter(s => s.tier === 'bronze');
+
+  const sponsorsContainerVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delayChildren: stagger(0.3),
+      },
+    },
+  };
+
+  const sponsorVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.2, ease: 'easeOut' },
+    },
+  };
 
   return (
     <section ref={ref} className="py-20 bg-white">
@@ -66,35 +139,37 @@ const SponsorsSection = () => {
         {/* Platinum Sponsors */}
         {platinumSponsors.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={sponsorsContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="mb-12"
           >
             <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
               Platinum Sponsors
             </h3>
             <div className="flex justify-center">
-              {platinumSponsors.map((sponsor, index) => (
+              {platinumSponsors.map(sponsor => (
                 <motion.div
                   key={sponsor.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.9 }
-                  }
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  variants={sponsorVariants}
                   className="bg-white rounded-xl p-2 shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4"
                 >
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={150}
-                    height={100}
-                    unoptimized
-                    className="h-20 w-auto mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={200}
+                        height={120}
+                        unoptimized
+                        className="h-22 w-auto mx-auto transition-all duration-300"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{sponsor.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </motion.div>
               ))}
             </div>
@@ -104,35 +179,37 @@ const SponsorsSection = () => {
         {/* Gold Sponsors */}
         {goldSponsors.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            variants={sponsorsContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="mb-12"
           >
             <h3 className="text-xl font-bold text-center mb-6 text-gray-800">
               Gold Sponsors
             </h3>
             <div className="flex justify-center flex-wrap gap-6">
-              {goldSponsors.map((sponsor, index) => (
+              {goldSponsors.map(sponsor => (
                 <motion.div
                   key={sponsor.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.9 }
-                  }
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  variants={sponsorVariants}
                   className="bg-white rounded-lg p-2 shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={120}
-                    height={80}
-                    unoptimized
-                    className="h-16 w-auto mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={120}
+                        height={80}
+                        unoptimized
+                        className="h-20 w-auto mx-auto transition-all duration-300"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{sponsor.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </motion.div>
               ))}
             </div>
@@ -142,34 +219,77 @@ const SponsorsSection = () => {
         {/* Silver Sponsors */}
         {silverSponsors.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            variants={sponsorsContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-12"
           >
             <h3 className="text-lg font-bold text-center mb-6 text-gray-800">
               Silver Sponsors
             </h3>
             <div className="flex justify-center flex-wrap gap-4">
-              {silverSponsors.map((sponsor, index) => (
+              {silverSponsors.map(sponsor => (
                 <motion.div
                   key={sponsor.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.9 }
-                  }
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  variants={sponsorVariants}
                   className="bg-white rounded-lg p-2 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={100}
-                    height={60}
-                    unoptimized
-                    className="h-12 w-auto mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={100}
+                        height={60}
+                        unoptimized
+                        className="h-12 w-auto mx-auto transition-all duration-300"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{sponsor.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Bronze Sponsors */}
+        {bronzeSponsors.length > 0 && (
+          <motion.div
+            variants={sponsorsContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h3 className="text-lg font-bold text-center mb-6 text-gray-800">
+              Bronze Sponsors
+            </h3>
+            <div className="flex justify-center flex-wrap gap-4">
+              {bronzeSponsors.map(sponsor => (
+                <motion.div
+                  key={sponsor.name}
+                  variants={sponsorVariants}
+                  className="bg-white rounded-lg p-2 shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={100}
+                        height={60}
+                        unoptimized
+                        className="h-10 w-auto mx-auto transition-all duration-300"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{sponsor.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </motion.div>
               ))}
             </div>
