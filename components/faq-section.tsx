@@ -62,7 +62,7 @@ const FAQSection = ({ className }: FAQSectionProps) => {
     },
     {
       question: 'Katanya mau Offroad, basah dikit apa basah banget?',
-      answer: 'Basah dikit, tapi tetep baju ganti yaa',
+      answer: 'Basah dikit, tapi tetep bawa baju ganti yaa',
     },
   ];
 
