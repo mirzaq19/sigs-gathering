@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
+import { randomInRange, todayNotMoreThan } from '@/lib/utils';
+import { GENERAL_INFO } from '@/data/general.const';
 
 interface TimeLeft {
   days: number;
@@ -15,7 +18,7 @@ interface CountdownTimerProps {
 }
 
 const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
-  eventDate.setHours(6, 0, 0, 0); // 6 AM
+  eventDate.setHours(5, 45, 0, 0); // 5:45 AM
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
@@ -23,6 +26,38 @@ const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
     minutes: 0,
     seconds: 0,
   });
+  const [hasCelebrated, setHasCelebrated] = useState(false);
+
+  const fireworks = (durationInSecond: number) => {
+    const duration = durationInSecond * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = {
+      startVelocity: 30,
+      spread: 360,
+      ticks: 60,
+      zIndex: 1000,
+    };
+
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 80 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      });
+    }, 250);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,6 +74,17 @@ const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
           seconds: Math.floor((distance % (1000 * 60)) / 1000),
         });
       }
+
+      if (distance < 1000 && todayNotMoreThan(GENERAL_INFO.endDate)) {
+        fireworks(10);
+        setHasCelebrated(true);
+      }
+
+      if (distance <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setHasCelebrated(true);
+        clearInterval(timer);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
@@ -52,7 +98,7 @@ const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
   ];
 
   return (
-    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border transition-all border-white/20">
       <h2 className="text-lg md:text-2xl font-bold text-white mb-6 text-center">
         Hitung Mundur Acara
       </h2>
@@ -82,6 +128,21 @@ const CountdownTimer = ({ eventDate = new Date() }: CountdownTimerProps) => {
           </motion.div>
         ))}
       </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+        animate={
+          hasCelebrated
+            ? { opacity: 1, y: 0, scale: 1 }
+            : { opacity: 0, y: 20, scale: 0.9 }
+        }
+        transition={{ duration: 1 }}
+        className={`mt-4 md:text-xl text-white/90 font-semibold transition-all ${
+          hasCelebrated ? 'h-fit' : 'h-0'
+        }`}
+      >
+        Wah udah waktunya gathering nih! Let&apos;s have fun together! 🎉
+      </motion.p>
     </div>
   );
 };
