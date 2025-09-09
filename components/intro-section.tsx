@@ -14,21 +14,19 @@ const IntroSection = () => {
   const features = [
     {
       icon: MapPin,
-      title: 'Lokasi Menawan',
-      description:
-        'Nikmati pemandangan alam yang indah dan suasana yang menyegarkan di lokasi acara.',
+      title: 'Lokasi',
+      description: 'Tawangmangu',
     },
     {
       icon: Gift,
       title: 'Doorprize Menarik',
       description:
-        'Dapatkan kesempatan untuk memenangkan doorprize menarik yang telah disiapkan khusus untuk teman-teman peserta.',
+        'Banyak doorprize dan grandprize, tapi khusus yang ikut acara di hotel 😉',
     },
     {
       icon: Sparkles,
       title: 'Fun Activities',
-      description:
-        'Berbagai aktivitas menarik dan games seru yang akan membuat acara ini tak terlupakan.',
+      description: 'Offroad Jeep, Gala Dinner, dan Eksplor Rumah Atsiri',
     },
   ];
 
@@ -46,7 +44,7 @@ const IntroSection = () => {
             <span className="text-[#6A00FF]">Employee Gathering 2025?</span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Yuk ikutan di acara TIC Employee Gathering 2025 yang luar biasa ini.
+            Yuk ikutan di acara Employee Gathering 2025 yang luar biasa ini.
             Saatnya membangun tim yang lebih solid, bersenang-senang bersama,
             dan menciptakan kenangan indah dengan seluruh rekan kerja.
           </p>

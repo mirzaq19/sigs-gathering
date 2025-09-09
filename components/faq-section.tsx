@@ -39,8 +39,7 @@ const FAQSection = ({ className }: FAQSectionProps) => {
     },
     {
       question: 'Asyikkk, kapan kita capcusnya? Dimana tempatnya?',
-      answer:
-        '13-14 September 2025. Clue Tempat: adem, bisa healing... tapi bukan ke planet Namek ya.',
+      answer: '13-14 September 2025, tempatnya di Tawangmangu 🏞️',
     },
     {
       question: 'Pick Up Point nya dimana ya?',
@@ -60,6 +59,10 @@ const FAQSection = ({ className }: FAQSectionProps) => {
       question: 'Kalo ada pertanyaan lain, siapa yang bisa dihubungi?',
       answer:
         'Kalo ada yang mau ditanyain, bisa hubungi pak ketua ya, <b>Kakak Bayu (085879663547)</b> 😄',
+    },
+    {
+      question: 'Katanya mau Offroad, basah dikit apa basah banget?',
+      answer: 'Basah dikit, tapi tetep baju ganti yaa',
     },
   ];
 

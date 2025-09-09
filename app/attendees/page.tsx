@@ -13,12 +13,7 @@ export default function AttendeesPage() {
   const [filteredAttendees, setFilteredAttendees] =
     useState<Attendee[]>(ATTENDEES);
   const stats = [
-    { label: 'Total Peserta', value: ATTENDEES.length, icon: Users },
-    {
-      label: 'Perusahaan',
-      value: new Set(ATTENDEES.map(a => a.company)).size,
-      icon: Building,
-    },
+    { label: 'Total Peserta', value: 62, icon: Users },
     {
       label: 'Hari Menuju Acara',
       value:

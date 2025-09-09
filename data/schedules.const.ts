@@ -13,7 +13,7 @@ export const SCHEDULES: Schedule[] = [
   // Sabtu
   {
     day: 'Sabtu',
-    time: '05:15 - 05:30',
+    time: '05:00 - 05:30',
     title: 'Persiapan Berangkat',
     description: 'Registrasi & Persiapan keberangkatan di AMG Tower.',
     location: 'Lobby AMG Tower',
@@ -57,8 +57,7 @@ export const SCHEDULES: Schedule[] = [
     day: 'Sabtu',
     time: '14:30 - 18:00',
     title: 'Free Time',
-    description:
-      'Waktu bebas untuk menikmati fasilitas hotel, berenang, atau bersantai.',
+    description: 'Siapkan kostum terbaikmu!',
     location: 'Hotel Jawadwipa',
     icon: Hotel,
   },
@@ -66,8 +65,7 @@ export const SCHEDULES: Schedule[] = [
     day: 'Sabtu',
     time: '18:00 - 22:00',
     title: 'Gala Dinner',
-    description:
-      'Makan malam bersama dengan berbagai hidangan dan hiburan menarik.',
+    description: 'Show your character!',
     location: 'Hotel Jawadwipa',
     icon: Utensils,
   },
@@ -85,7 +83,7 @@ export const SCHEDULES: Schedule[] = [
   {
     day: 'Minggu',
     time: '07:00 - 08:00',
-    title: 'Sarapan Pagi (Breakfast)',
+    title: 'Check-Out, Sarapan Pagi, & Foto Bersama',
     description: 'Sarapan pagi bersama di restoran hotel.',
     location: 'Hotel Jawadwipa',
     icon: Utensils,
@@ -93,8 +91,8 @@ export const SCHEDULES: Schedule[] = [
   {
     day: 'Minggu',
     time: '08:45 - 09:30',
-    title: 'Check-out Hotel & Perjalanan ke Rumah Atsiri',
-    description: 'Check-out dari hotel dan perjalanan menuju Rumah Atsiri.',
+    title: 'Perjalanan ke Rumah Atsiri',
+    description: 'Perjalanan menuju Rumah Atsiri.',
     location: 'Bus',
     icon: Bus,
   },

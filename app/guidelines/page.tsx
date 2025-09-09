@@ -20,11 +20,11 @@ export default function GuidelinesPage() {
   const rules = [
     'Membawa pakaian ganti untuk 2 hari 1 malam',
     'Kaos Gathering (yang diberikan oleh panitia)',
-    'Menyiapkan Movie Character Costume & Accesoris (optional)',
+    'Membawa Movie Character Costume & Accesoris',
     'Membawa Jaket',
-    'Membawa obat-obatan pribadi',
+    'Membawa obat-obatan pribadi, seperti minyak kayu putih, obat alergi, freshcare, dll.',
     'Membawa baju renang (Bila ingin berenang)',
-    'Alas kaki yang nyaman',
+    'Sandal dan Sepatu',
     'Membawa plastik / kresek kecil untuk melindungi barang berharga seperti HP, earphone, powerbank saat offroad jeep',
   ];
 
@@ -61,7 +61,8 @@ export default function GuidelinesPage() {
     {
       title: 'Hari Pertama',
       items: [
-        'Pagi : Kaos Seragam Gathering bawahan dan atasan gelap',
+        'Pagi : Kaos Gathering dan bawahan gelap (jilbab dan manset gelap untuk perempuan)',
+        'Siang : Baju ganti bebas rapi sopan (setelah offroad)',
         'Malam : Movie Character Costume',
         'Diperbolehkan memakai celana pendek 3/4 asalkan sopan',
       ],
