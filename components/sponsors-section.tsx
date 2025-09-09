@@ -90,6 +90,11 @@ const SponsorsSection = () => {
       logo: '/sponsors/biotek.png',
       tier: 'bronze',
     },
+    {
+      name: 'PT. Gading Murni',
+      logo: '/sponsors/gading-murni.png',
+      tier: 'bronze',
+    },
   ];
 
   const platinumSponsors = sponsors.filter(s => s.tier === 'platinum');
@@ -153,7 +158,7 @@ const SponsorsSection = () => {
                 <motion.div
                   key={sponsor.name}
                   variants={sponsorVariants}
-                  className="bg-white rounded-xl p-2 shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4"
+                  className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4"
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -193,7 +198,7 @@ const SponsorsSection = () => {
                 <motion.div
                   key={sponsor.name}
                   variants={sponsorVariants}
-                  className="bg-white rounded-lg p-2 shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -233,7 +238,7 @@ const SponsorsSection = () => {
                 <motion.div
                   key={sponsor.name}
                   variants={sponsorVariants}
-                  className="bg-white rounded-lg p-2 shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
