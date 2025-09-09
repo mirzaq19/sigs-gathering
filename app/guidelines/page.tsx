@@ -21,7 +21,6 @@ export default function GuidelinesPage() {
     'Membawa pakaian ganti untuk 2 hari 1 malam',
     'Kaos Gathering (yang diberikan oleh panitia)',
     'Menyiapkan Movie Character Costume & Accesoris (optional)',
-    'Membawa baju renang (Bila ingin berenang)',
     'Membawa Jaket',
     'Membawa obat-obatan pribadi',
     'Membawa baju renang (Bila ingin berenang)',
