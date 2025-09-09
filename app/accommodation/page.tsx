@@ -1,19 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  Bus,
-  User,
-  Hotel,
-  Users,
-  MapPin,
-  DoorOpen,
-  TvMinimalPlay,
-} from 'lucide-react';
+import { Bus, User, Hotel, Users, DoorOpen, TvMinimalPlay } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BUS_SEATS, BusSeat, ROOMS } from '@/data/accommodations.const';
 import { PERMISSIONS } from '@/data/permission.const';
+import { cn } from '@/lib/utils';
 
 export default function AccommodationPage() {
   return (
@@ -134,10 +127,6 @@ export default function AccommodationPage() {
                           <Users className="w-4 h-4 mr-1" />
                           {room.attendees.length} orang
                         </span>
-                        <span className="flex items-center">
-                          <MapPin className="w-4 h-4 mr-1" />
-                          Lantai 1
-                        </span>
                       </div>
                     </div>
                   </CardContent>
@@ -155,7 +144,7 @@ export default function AccommodationPage() {
             )}
           </div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
@@ -186,7 +175,7 @@ export default function AccommodationPage() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
     </div>
@@ -220,7 +209,7 @@ const BusLayout = ({ assignments }: { assignments: BusSeat[] }) => {
       >
         <div className="min-w-md max-w-lg mx-auto mb-1 ">
           <div className="flex justify-center items-center mb-4">
-            <div className="bg-white text-xs flex justify-center items-center gap-1 text-gray-600 py-2 px-3 border border-gray-200 rounded">
+            <div className="bg-white text-sm flex justify-center items-center gap-1 text-gray-600 py-2 px-4 border border-gray-200 rounded">
               <TvMinimalPlay className="size-4 text-gray-600" /> TV
             </div>
           </div>
@@ -234,11 +223,14 @@ const BusLayout = ({ assignments }: { assignments: BusSeat[] }) => {
 
             {/* Front Seat */}
             <div
-              className={`flex flex-col items-center justify-center rounded overflow-hidden ${
-                frontSeat.attendeeName.toLocaleLowerCase() !== 'kosong'
-                  ? 'bg-[#6A00FF] text-white'
-                  : 'bg-gray-200 text-gray-400'
-              }`}
+              className={cn(
+                `flex flex-col items-center justify-center rounded overflow-hidden ${
+                  frontSeat.attendeeName.toLocaleLowerCase() !== 'kosong'
+                    ? 'bg-[#6A00FF] text-white'
+                    : 'bg-gray-200 text-gray-400'
+                }`,
+                'hidden'
+              )}
             >
               <span className="text-xs truncate w-full text-center py-2 px-4">
                 {frontSeat.id} {frontSeat.attendeeName}

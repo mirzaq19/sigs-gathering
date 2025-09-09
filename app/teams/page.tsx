@@ -5,6 +5,7 @@ import { Users, Bus } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { JEEP_TEAMS, GAME_TEAMS } from '@/data/teams.const';
 import { PERMISSIONS } from '@/data/permission.const';
+import Image from 'next/image';
 
 export default function TeamsPage() {
   return (
@@ -125,8 +126,7 @@ export default function TeamsPage() {
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Selain offroad, peserta juga akan dibagi ke dalam kelompok untuk
-              mengikuti berbagai permainan seru. Berikut adalah pembagian
-              kelompok game:
+              mengikuti games yang pastinya seru banget.
             </p>
           </motion.div>
 
@@ -145,9 +145,17 @@ export default function TeamsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 py-4 gap-2">
-                  <CardHeader className="px-4">
-                    <div className="flex items-center justify-between">
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 p-0 pb-4 gap-2">
+                  <CardHeader className="p-0">
+                    <Image
+                      src={team.image || '/teams/default.jpg'}
+                      alt={team.id}
+                      className="w-full h-36 lg:h-44 object-cover rounded-tl-lg rounded-tr-lg"
+                      width={1280}
+                      height={720}
+                      draggable={false}
+                    />
+                    <div className="flex items-center justify-between px-4 py-2">
                       <CardTitle className="md:text-lg flex items-center">
                         <Users className="size-5 shrink-0 text-[#6A00FF] mr-2" />
                         {team.id}

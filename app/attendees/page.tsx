@@ -74,8 +74,8 @@ export default function AttendeesPage() {
 
       {/* Stats Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-12 md:gap-24 justify-center">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}

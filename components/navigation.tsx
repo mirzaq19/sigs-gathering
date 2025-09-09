@@ -18,8 +18,8 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/event-details', label: 'Event Details' },
   // { href: '/transportation', label: 'Transportation' },
-  // { href: '/accommodation', label: 'Accommodation' },
-  // { href: '/teams', label: 'Teams' },
+  { href: '/accommodation', label: 'Accommodation' },
+  { href: '/teams', label: 'Teams' },
   { href: '/schedule', label: 'Schedule' },
   { href: '/guidelines', label: 'Guidelines' },
   { href: '/attendees', label: 'Attendees' },
@@ -41,7 +41,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-8">
+          <div className="hidden xl:flex space-x-4">
             {navItems.map(item => (
               <Link
                 key={item.href}
@@ -62,7 +62,7 @@ const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="xl:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -77,7 +77,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-purple-100"
+            className="xl:hidden bg-white border-t border-purple-100"
           >
             <div className="px-4 py-2 space-y-1">
               {navItems.map(item => (

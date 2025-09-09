@@ -1,94 +1,120 @@
 export interface Team {
   id: string;
+  image?: string;
   members: string[];
 }
 
 export const JEEP_TEAMS: Team[] = [
   {
     id: 'Jeep 1',
-    members: ['Pak Aryo', 'Zainil', 'Bari', 'Sonny AGS'],
+    members: ['Pak Aryo', 'Pak Zainil', 'Bari'],
   },
   {
     id: 'Jeep 2',
-    members: ['Dias', 'Anissa', 'Lina', 'Putri'],
+    members: ['Putri', 'Sanah', 'Tyara'],
   },
   {
     id: 'Jeep 3',
-    members: ['Fiqri', 'Irvan', 'Bayu', 'Edy'],
+    members: ['Refo', 'Dicky', 'Edy', 'Maudy'],
   },
   {
     id: 'Jeep 4',
-    members: ['Dany', 'Naufal', 'Fajar', 'Yusuf AAS'],
+    members: ['Fiqri', 'Eko', 'Danu', 'Yudha'],
   },
   {
     id: 'Jeep 5',
-    members: ['Bella', 'Puja', 'Titan', 'Ifa'],
+    members: ['Fajar', 'Naufal', 'Bayu', 'Dany'],
   },
   {
     id: 'Jeep 6',
-    members: ['Cintya', 'Dika', 'Puji', 'Icha'],
+    members: ['Happy', 'Rian', 'Bahar'],
   },
   {
     id: 'Jeep 7',
-    members: ['Dinda', 'Joti', 'Astri', 'Friska'],
+    members: ['Cintya', 'Dika', 'Puji', 'Icha'],
   },
   {
     id: 'Jeep 8',
-    members: ['Najla', 'Tyara', 'Anti', "Ba'is"],
+    members: ['Dinda', 'Linda', 'Rizda', 'Friska'],
   },
   {
     id: 'Jeep 9',
-    members: ['Happy', 'Brilly', 'Refo', 'Wahyu'],
+    members: ['Najla', 'Anti', 'Tiara'],
   },
   {
     id: 'Jeep 10',
-    members: ['Mirzaq', 'Yoga', 'Badri', 'Ali'],
+    members: ['Ardi', 'Brilly', 'Wahyu', 'Irvan'],
   },
   {
     id: 'Jeep 11',
-    members: ['Alivia', 'Rizda', 'Tiara', 'Shofi'],
+    members: ['Mirzaq', 'Yoga', 'Badri', 'Ali'],
   },
   {
     id: 'Jeep 12',
-    members: ['Regina', 'Sanah', 'Novi AAS'],
+    members: ['Alivia', 'Titan', "Ba'is", 'Ifa'],
   },
   {
     id: 'Jeep 13',
-    members: ['Ferry', 'Alif', 'Ardi', 'Bahar'],
+    members: ['Regina', 'Shofi', 'Anissa'],
   },
   {
     id: 'Jeep 14',
-    members: ['Danu', 'Dicky', 'Yudha'],
+    members: ['Ferry', 'Alif', 'Iqbal'],
   },
   {
     id: 'Jeep 15',
-    members: ['Maudy', 'Eko', 'Rian', 'Iqbal'],
+    members: ['Pak Samrin', 'Pak Samrin (Istri)'],
+  },
+  {
+    id: 'Jeep 16',
+    members: ['Dias', 'Bella', 'Puja', 'Astri'],
   },
 ];
 
 export const GAME_TEAMS: Team[] = [
   {
-    id: 'The Avangers',
-    members: ['Edy', 'Icha', 'Lina', 'Regina', 'Ferry'],
+    id: 'Kera Sakti',
+    image: '/teams/kera-sakti.jpeg',
+    members: ['Edy', 'Icha', 'Regina', 'Ferry', 'Najla'],
   },
   {
-    id: 'Avatar Team',
-    members: ['Dika', 'Rizda', 'Eko', 'Diki', 'Ifa'],
+    id: 'Avatar',
+    image: '/teams/avatar.jpg',
+    members: ['Dika', 'Eko', 'Maudy', 'Ifa', 'Yudha'],
   },
   {
     id: 'The Incredibles',
-    members: ['Putri', 'Danny', 'Tyara', 'Maudy', 'Novi AAS'],
+    image: '/teams/incredibles.jpg',
+    members: ['Putri', 'Danny', 'Lina', 'Arifin', 'Cintya'],
   },
   {
-    id: 'Transformers',
-    members: ['Titan', 'Ardi', 'Yoga', 'Dinda', 'Tiara'],
+    id: 'Dora The Explorer',
+    image: '/teams/dora.webp',
+    members: ['Titan', 'Ardi', 'Yoga', 'Rizda', 'Wahyu'],
   },
   {
     id: 'Minions',
-    members: ['Ali', "Ba'is", 'Anti', 'Badri', 'Happy'],
+    image: '/teams/minions.jpg',
+    members: ['Ali', "Ba'is", 'Anti', 'Badri', 'Alivia'],
   },
   {
-    id: 'Scooby-Doo',
-    members: ['Shofi', 'Astri', 'Irvan', 'Fiqri', 'Yusuf AAS'],
+    id: 'Masha and The Bear',
+    image: '/teams/masha.jpg',
+    members: ['Shofi', 'Astri', 'Irvan', 'Fiqri', 'Rian'],
+  },
+  {
+    id: 'Shaun The Sheep',
+    image: '/teams/shaun-the-sheep.jpg',
+    members: ['Puja', 'Brilly', 'Naufal', 'Dias', 'Friska'],
+  },
+  {
+    id: 'Madagascar',
+    image: '/teams/madagascar.jpg',
+    members: ['Tiara', 'Puji', 'Iqbal', 'Bahar', 'Refo'],
+  },
+  {
+    id: 'Tayo',
+    image: '/teams/tayo.webp',
+    members: ['Dicky', 'Tyara', 'Happy', 'Dinda', 'Anissa'],
   },
 ];
