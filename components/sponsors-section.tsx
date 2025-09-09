@@ -46,6 +46,11 @@ const SponsorsSection = () => {
       tier: 'bronze',
     },
     {
+      name: 'PT. Elo Karsa Utama',
+      logo: '/sponsors/elokarsa.png',
+      tier: 'bronze',
+    },
+    {
       name: 'PT. Agarindo Biological Company',
       logo: '/sponsors/agarindo.png',
       tier: 'bronze',
@@ -75,11 +80,7 @@ const SponsorsSection = () => {
       logo: '/sponsors/dipa.png',
       tier: 'bronze',
     },
-    {
-      name: 'PT. Elo Karsa Utama',
-      logo: '/sponsors/elokarsa.png',
-      tier: 'bronze',
-    },
+
     {
       name: 'PT. Sartonet Filtrasi Indonesia',
       logo: '/sponsors/sartonet.png',
@@ -168,7 +169,7 @@ const SponsorsSection = () => {
                         width={200}
                         height={120}
                         unoptimized
-                        className="h-22 w-auto mx-auto transition-all duration-300"
+                        className="h-14 md:h-22 w-auto mx-auto transition-all duration-300"
                       />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -208,7 +209,7 @@ const SponsorsSection = () => {
                         width={120}
                         height={80}
                         unoptimized
-                        className="h-20 w-auto mx-auto transition-all duration-300"
+                        className="h-14 md:h-20 w-auto mx-auto transition-all duration-300"
                       />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -248,7 +249,7 @@ const SponsorsSection = () => {
                         width={100}
                         height={60}
                         unoptimized
-                        className="h-12 w-auto mx-auto transition-all duration-300"
+                        className="h-7 md:h-12 w-auto mx-auto transition-all duration-300"
                       />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -285,10 +286,10 @@ const SponsorsSection = () => {
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
-                        width={100}
+                        width={200}
                         height={60}
                         unoptimized
-                        className="h-10 w-auto mx-auto transition-all duration-300"
+                        className="h-6 md:h-10 w-auto mx-auto transition-all duration-300"
                       />
                     </TooltipTrigger>
                     <TooltipContent>
