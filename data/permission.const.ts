@@ -1,6 +1,6 @@
 export const PERMISSIONS = {
-  bus: false,
-  hotel: false,
-  jeep: false,
-  games: false,
+  bus: true,
+  hotel: true,
+  jeep: true,
+  games: true,
 };
