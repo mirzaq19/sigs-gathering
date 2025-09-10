@@ -35,7 +35,7 @@ export const JEEP_TEAMS: Team[] = [
   },
   {
     id: 'Jeep 8',
-    members: ['Dinda', 'Linda', 'Rizda', 'Friska'],
+    members: ['Dinda', 'Lina', 'Rizda', 'Friska'],
   },
   {
     id: 'Jeep 9',
