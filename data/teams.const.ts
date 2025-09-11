@@ -95,7 +95,7 @@ export const GAME_TEAMS: Team[] = [
   {
     id: 'Minions',
     image: '/teams/minions.jpg',
-    members: ['Ali', "Ba'is", 'Anti', 'Badri', 'Alivia'],
+    members: ['Ali', "Ba'is", 'Anti', 'Badri', 'Pak Zainil'],
   },
   {
     id: 'Masha and The Bear',
@@ -115,6 +115,6 @@ export const GAME_TEAMS: Team[] = [
   {
     id: 'Tayo',
     image: '/teams/tayo.webp',
-    members: ['Dicky', 'Tyara', 'Happy', 'Dinda', 'Anissa'],
+    members: ['Dicky', 'Tyara', 'Happy', 'Dinda', 'Mas Bari'],
   },
 ];
