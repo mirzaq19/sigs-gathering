@@ -16,10 +16,7 @@ export default function AttendeesPage() {
     { label: 'Total Peserta', value: 62, icon: Users },
     {
       label: 'Hari Menuju Acara',
-      value:
-        countDays(GENERAL_INFO.startDate) === 0
-          ? 'Hari Ini'
-          : `${countDays(GENERAL_INFO.startDate)}`,
+      value: countDays(GENERAL_INFO.startDate),
       icon: Calendar,
     },
     { label: 'Tingkat Antusiasme', value: '100%', icon: Star },

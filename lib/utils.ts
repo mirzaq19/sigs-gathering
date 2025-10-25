@@ -15,7 +15,7 @@ export const countDays = (date: Date | string): number => {
   // check if the date is in the past, ignore the time just compare the date part
   today.setHours(0, 0, 0, 0);
   date.setHours(0, 0, 0, 0);
-  if (date < today) return -1;
+  if (date < today) return 0;
 
   // check the date is today
   if (date.getTime() === today.getTime()) return 0;
