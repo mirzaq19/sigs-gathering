@@ -1,11 +1,2 @@
-export default function SponsorsSection() {
-  return (
-    <section className="surface-sand px-6 py-20 lg:px-12">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-end">
-        <div><p className="section-kicker">Supported by</p><h2 className="display-serif mt-4 text-5xl text-primary">Sponsors<br />menyusul.</h2></div>
-        <p className="max-w-sm text-sm leading-6 text-secondary-foreground">Kami akan memperbarui daftar sponsor dan partner perjalanan setelah konfirmasi final tersedia.</p>
-      </div>
-      <div className="mx-auto mt-12 max-w-7xl rounded-2xl border border-dashed border-secondary-foreground/30 px-6 py-10 text-center text-sm text-secondary-foreground/70">Sponsor lockup & logo wall — coming soon</div>
-    </section>
-  );
-}
+const sponsors = ['agarindo.png','biotek.png','bnm.png','dipa.png','ditek.png','elokarsa.png','equiva.jpg','gading-murni.png','gsa.jpeg','kromtekindo.png','laborindo.png','mec.png','npa.png','prolabios.png','radin.png','sartonet.png','unitama.jpeg'];
+export default function SponsorsSection() { return <section className="surface-sand px-6 py-20 lg:px-12"><div className="mx-auto max-w-7xl"><p className="section-kicker">Supported by</p><h2 className="display-serif mt-4 text-5xl text-primary">Partners who<br />make it possible.</h2><p className="mt-5 max-w-sm text-sm leading-6 text-secondary-foreground">Sponsor dan partner gathering tahun lalu hadir kembali sebagai bagian dari perjalanan kita.</p><div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">{sponsors.map((sponsor) => <div key={sponsor} className="flex h-24 items-center justify-center rounded-xl border border-secondary-foreground/15 bg-background/70 p-4"><img src={`/sponsors/${sponsor}`} alt={`Sponsor ${sponsor.split('.')[0]}`} className="max-h-12 w-full object-contain" /></div>)}</div></div></section>; }
