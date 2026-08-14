@@ -1,132 +1,15 @@
-import { Users, Camera, Mountain, Utensils, Bus, Hotel } from 'lucide-react';
+import { Users, Camera, Mountain, Utensils, Bus, Hotel, Waves } from 'lucide-react';
 
-export interface Schedule {
-  time: string;
-  title: string;
-  description: string;
-  location: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  day: string;
-}
+export interface Schedule { time: string; title: string; description: string; location: string; icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; day: string; }
 
 export const SCHEDULES: Schedule[] = [
-  // Sabtu
-  {
-    day: 'Sabtu',
-    time: '05:00 - 05:30',
-    title: 'Persiapan Berangkat',
-    description: 'Registrasi & Persiapan keberangkatan di AMG Tower.',
-    location: 'Lobby AMG Tower',
-    icon: Users,
-  },
-  {
-    day: 'Sabtu',
-    time: '05:30 - 10.00',
-    title: 'Perjalanan menuju Tawangmangu',
-    description: 'Perjalanan Surabaya → Tawangmangu',
-    location: 'Bus',
-    icon: Bus,
-  },
-  {
-    day: 'Sabtu',
-    time: '10:00 - 12.00',
-    title: 'Offroad Jeep (start RM Soewatu)',
-    description:
-      'Petualangan offroad jeep di sekitar Tawangmangu dengan pemandangan alam yang indah.',
-    location: 'Tawangmangu',
-    icon: Mountain,
-  },
-  {
-    day: 'Sabtu',
-    time: '12:00 - 13:30',
-    title: 'Makan Siang & Istirahat (ISHOMA)',
-    description: 'Makan siang dengan pemandangan indah dan waktu istirahat.',
-    location: 'Restoran Tawangmangu',
-    icon: Utensils,
-  },
-  {
-    day: 'Sabtu',
-    time: '13:30 - 14:00',
-    title: 'Menuju Hotel Jawadwipa (Check-in)',
-    description:
-      'Perjalanan menuju Hotel Jawadwipa untuk check-in dan istirahat sejenak.',
-    location: 'Bus',
-    icon: Bus,
-  },
-  {
-    day: 'Sabtu',
-    time: '14:30 - 18:00',
-    title: 'Free Time',
-    description: 'Siapkan kostum terbaikmu!',
-    location: 'Hotel Jawadwipa',
-    icon: Hotel,
-  },
-  {
-    day: 'Sabtu',
-    time: '18:00 - 22:00',
-    title: 'Gala Dinner',
-    description: 'Show your character!',
-    location: 'Hotel Jawadwipa',
-    icon: Utensils,
-  },
-  {
-    day: 'Sabtu',
-    time: '22:00 - 07:00',
-    title: 'Istirahat',
-    description:
-      'Istirahat di hotel untuk mempersiapkan kegiatan hari berikutnya.',
-    location: 'Hotel Jawadwipa',
-    icon: Hotel,
-  },
-
-  // Minggu
-  {
-    day: 'Minggu',
-    time: '07:00 - 08:00',
-    title: 'Check-Out, Sarapan Pagi, & Foto Bersama',
-    description: 'Sarapan pagi bersama di restoran hotel.',
-    location: 'Hotel Jawadwipa',
-    icon: Utensils,
-  },
-  {
-    day: 'Minggu',
-    time: '08:45 - 09:30',
-    title: 'Perjalanan ke Rumah Atsiri',
-    description: 'Perjalanan menuju Rumah Atsiri.',
-    location: 'Bus',
-    icon: Bus,
-  },
-  {
-    day: 'Minggu',
-    time: '09:30 - 11:00',
-    title: 'Eksplorasi Rumah Atsiri',
-    description:
-      'Kegiatan edukasi di Rumah Atsiri dengan berbagai aktivitas menarik.',
-    location: 'Rumah Atsiri',
-    icon: Camera,
-  },
-  {
-    day: 'Minggu',
-    time: '11:00 - 13:00',
-    title: 'ISHOMA + Belanja oleh-oleh (RM Godong Gedang)',
-    description: 'Istirahat, makan siang, dan kesempatan belanja oleh-oleh.',
-    location: 'RM Godong Gedang',
-    icon: Utensils,
-  },
-  {
-    day: 'Minggu',
-    time: '13:00 - 13:10',
-    title: 'Penutupan oleh Panitia & Direksi',
-    description: 'Penutupan acara dan ucapan terima kasih kepada peserta.',
-    location: 'RM Godong Gedang',
-    icon: Utensils,
-  },
-  {
-    day: 'Minggu',
-    time: '12:30 - 18:00',
-    title: 'Perjalanan Pulang ke AMG Tower',
-    description: 'Perjalanan kembali ke Surabaya dengan bus.',
-    location: 'Bus',
-    icon: Bus,
-  },
+  { day: 'Jumat', time: '05:00 – 06:00', title: 'Titik Kumpul & Registrasi', description: 'Persiapan keberangkatan bersama dari AMG Tower.', location: 'AMG Tower, Surabaya', icon: Users },
+  { day: 'Jumat', time: '06:00 – 14:00', title: 'Perjalanan menuju Banyuwangi', description: 'Perjalanan darat dan makan siang. Detail teknis menyusul.', location: 'Transportasi', icon: Bus },
+  { day: 'Jumat', time: 'Sore', title: 'Check-in & Free Time', description: 'Istirahat, eksplorasi ringan, dan persiapan malam kebersamaan.', location: 'Hotel / Banyuwangi', icon: Hotel },
+  { day: 'Jumat', time: 'Malam', title: 'Gala Dinner & Best Costume', description: 'Makan malam, parade kostum karakter, dan hiburan bersama.', location: 'Venue acara — menyusul', icon: Utensils },
+  { day: 'Sabtu', time: 'Pagi', title: 'Explore Spot T', description: 'Menikmati lanskap alam Banyuwangi dan aktivitas kelompok.', location: 'Spot T — detail menyusul', icon: Mountain },
+  { day: 'Sabtu', time: 'Siang', title: 'Fun Games', description: 'Tantangan ringan untuk menguatkan kerja sama dan kekompakan.', location: 'Venue aktivitas — menyusul', icon: Users },
+  { day: 'Sabtu', time: 'Sore', title: 'Coastal Escape', description: 'Waktu menikmati suasana pesisir. Bawa sunscreen dan topi.', location: 'Pantai Banyuwangi — menyusul', icon: Waves },
+  { day: 'Minggu', time: 'Pagi', title: 'De Djawatan', description: 'Berjalan di antara pepohonan trembesi dan mengabadikan cerita perjalanan.', location: 'De Djawatan', icon: Camera },
+  { day: 'Minggu', time: 'Siang', title: 'Penutupan & Perjalanan Pulang', description: 'Penutupan oleh panitia dan perjalanan kembali ke Surabaya.', location: 'AMG Tower — estimasi menyusul', icon: Bus },
 ];

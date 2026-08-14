@@ -1,113 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowDown, CalendarDays, MapPin } from 'lucide-react';
 import CountdownTimer from './countdown-timer';
-import { GENERAL_INFO } from '@/data/general.const';
-import Image from 'next/image';
 
-const HeroSection = () => {
+export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-64px)] flex justify-center items-center overflow-hidden py-12">
-      {/* Background with gradient */}
-      <div className="absolute inset-0 hero-gradient" />
-
-      {/* Geometric shapes */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 2, ease: 'easeOut' }}
-        className="absolute top-20 right-20 w-64 h-64 bg-white rounded-full"
-      />
-
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 0.1, x: 0 }}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute bottom-10 -left-20 md:left-20 w-48 h-48 bg-[#6A00FF] geometric-shape"
-      />
-
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 0.1, y: 0 }}
-        transition={{ duration: 2, delay: 1 }}
-        className="absolute top-60 md:top-10 left-40 md:left-10 w-64 h-64"
-      >
-        <Image
-          src="/flower.svg"
-          alt="Flower"
-          width={128}
-          height={128}
-          className="w-full h-full object-contain"
-          priority
-        />
-      </motion.div>
-
-      {/* Main content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mb-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-3 leading-tight">
-            Employee <span className="text-purple-200">Gathering 2025</span>
-          </h1>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-lg md:text-2xl text-white/90 font-semibold mb-4"
-        >
-          {new Date(GENERAL_INFO.startDate).getDate()} -{' '}
-          {new Date(GENERAL_INFO.endDate).toLocaleString('id-ID', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          })}
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="md:text-xl text-white/90 mb-6 max-w-2xl mx-auto"
-        >
-          Yuk ikutan acara Employee Gathering yang penuh kegembiraan, membangun
-          tim yang solid, dan menciptakan kenangan indah bersama rekan kerja.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-        >
-          <CountdownTimer eventDate={new Date(GENERAL_INFO.startDate)} />
-        </motion.div>
+    <section className="surface-dark paper-grain relative isolate overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-[url('/images/hero-bg.png')] bg-cover bg-center opacity-30" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/30 via-primary/75 to-primary" aria-hidden="true" />
+      <div className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-7xl flex-col justify-between gap-16 px-6 pb-8 pt-28 lg:px-12 lg:pb-12 lg:pt-36">
+        <div className="flex items-start justify-between gap-6"><p className="section-kicker text-secondary">SIG Surabaya / 2026</p><p className="hidden max-w-44 text-right text-xs leading-5 text-primary-foreground/70 sm:block">Satu perjalanan. Satu alam. Satu tim.</p></div>
+        <div className="max-w-5xl"><p className="eyebrow-line section-kicker mb-6 text-secondary">Banyuwangi, Jawa Timur</p><h1 className="display-serif max-w-4xl text-6xl leading-[0.9] text-primary-foreground sm:text-8xl lg:text-[9.5rem]">One journey,<br /><span className="text-secondary">one nature.</span></h1><div className="mt-10 flex flex-wrap items-center gap-3 text-sm text-primary-foreground/85"><span className="badge-outline"><CalendarDays className="mr-2 inline size-3" />18–20 September 2026</span><span className="badge-outline"><MapPin className="mr-2 inline size-3" />Banyuwangi</span></div></div>
+        <div className="flex flex-col justify-between gap-8 border-t border-primary-foreground/20 pt-6 md:flex-row md:items-end"><div><p className="mb-3 text-sm text-primary-foreground/60">Menuju hari keberangkatan</p><CountdownTimer eventDate={new Date('2026-09-18T07:00:00+07:00')} /></div><Link href="#journey" className="group inline-flex items-center gap-3 text-sm font-semibold text-secondary">Ready for a new adventure? <span className="grid size-10 place-items-center rounded-full border border-secondary/50 transition group-hover:bg-secondary group-hover:text-primary"><ArrowDown className="size-4" /></span></Link></div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            className="w-1 h-3 bg-white rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
-};
-
-export default HeroSection;
+}
