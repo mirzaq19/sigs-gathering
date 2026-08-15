@@ -205,9 +205,11 @@ export default function EventDetailsPage() {
           </div>
           <div className="mt-16 grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
             <div className="bg-pastel rounded-2xl p-8">
-              <div className='flex items-center gap-2'>
+              <div className="flex items-center gap-2">
                 <MapPin className="size-6 text-teal" />
-                <span className='font-mono uppercase tracking-[0.22em] leading-normal'>Location</span>
+                <span className="font-mono uppercase tracking-[0.22em] leading-normal">
+                  Location
+                </span>
               </div>
               <h3 className="display-serif mt-8 text-4xl text-teal">
                 Banyuwangi, Jawa Timur.
