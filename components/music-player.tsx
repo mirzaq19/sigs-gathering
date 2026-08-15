@@ -265,11 +265,11 @@ export function MusicPlayer() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.9 }}
               transition={{ duration: 0.2 }}
-              className="mb-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-purple-100 p-3 sm:p-4 w-full max-w-80 sm:w-80"
+              className="mb-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-teal/20 bg-background/95 p-3 sm:p-4 w-full max-w-80 sm:w-80"
             >
               {/* Track Info - Responsive */}
               <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#6A00FF] to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-teal to-primary rounded-lg flex items-center justify-center flex-shrink-0">
                   <Music className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -321,7 +321,7 @@ export function MusicPlayer() {
                     className="h-8 w-8 sm:h-10 sm:w-10 p-0 hover:bg-purple-100"
                   >
                     {isLoading ? (
-                      <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-[#6A00FF] border-t-transparent rounded-full animate-spin" />
+                      <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-[#307B8E] border-t-transparent rounded-full animate-spin" />
                     ) : isPlaying ? (
                       <Pause className="w-4 h-4 sm:w-5 sm:h-5" />
                     ) : (
@@ -373,7 +373,7 @@ export function MusicPlayer() {
                     onClick={() => setCurrentTrackIndex(index)}
                     className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
                       index === currentTrackIndex
-                        ? 'bg-[#6A00FF]'
+                        ? 'bg-[#307B8E]'
                         : 'bg-gray-300'
                     }`}
                   />
@@ -395,14 +395,14 @@ export function MusicPlayer() {
         {/* Main Floating Button - Responsive */}
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="relative size-14 sm:size-16 bg-gradient-to-br from-[#6A00FF] to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center mr-4 group"
+          className="relative size-14 sm:size-16 bg-gradient-to-br from-teal to-primary rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center mr-4 group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {/* Animated background pulse when playing */}
           {isPlaying && (
             <motion.div
-              className="absolute inset-0 bg-[#6A00FF] rounded-full"
+              className="absolute inset-0 bg-[#307B8E] rounded-full"
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               style={{ opacity: 0.3 }}
@@ -439,11 +439,11 @@ export function MusicPlayer() {
               transition={{ delay: 0.5 }}
             >
               {isLoading ? (
-                <div className="size-3 sm:size-4 border-2 border-[#6A00FF] border-t-transparent rounded-full animate-spin" />
+                <div className="size-3 sm:size-4 border-2 border-[#307B8E] border-t-transparent rounded-full animate-spin" />
               ) : isPlaying ? (
-                <Pause className="size-3 sm:size-4 text-[#6A00FF]" />
+                <Pause className="size-3 sm:size-4 text-[#307B8E]" />
               ) : (
-                <Play className="size-3 sm:size-4 text-[#6A00FF] ml-0.5" />
+                <Play className="size-3 sm:size-4 text-[#307B8E] ml-0.5" />
               )}
             </motion.div>
           )}
@@ -451,7 +451,7 @@ export function MusicPlayer() {
           {/* Infinite playback indicator */}
           {isPlaying && (
             <motion.div
-              className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-xs text-white bg-[#6A00FF] px-2 py-0.5 rounded-full"
+              className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-xs text-white bg-[#307B8E] px-2 py-0.5 rounded-full"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}

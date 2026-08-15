@@ -1,9 +1,9 @@
 export const GENERAL_INFO = {
-  gatheringName: 'Gathering 2025',
-  theme: 'Work as One, Wild As Fun',
-  startDate: '2025-09-13',
-  endDate: '2025-09-14',
-  location: 'Tawangmangu, Jawa Tengah, Indonesia',
-  description:
-    'Join us for the Employee Gathering 2025! Meet your colleagues, enhance collaboration, and enjoy exciting moments together.',
+  gatheringName: 'SIG Surabaya Employee Gathering 2026',
+  theme: 'One Journey, One Nature, One Team',
+  startDate: '2026-09-18',
+  endDate: '2026-09-20',
+  location: 'Banyuwangi, Jawa Timur, Indonesia',
+  meetingPoint: 'AMG Tower, Surabaya',
+  description: 'Tiga hari untuk melangkah lebih jauh, menikmati alam Banyuwangi, dan memperkuat kebersamaan sebagai satu tim SIG Surabaya.',
 };

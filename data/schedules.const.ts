@@ -1,132 +1,25 @@
-import { Users, Camera, Mountain, Utensils, Bus, Hotel } from 'lucide-react';
-
-export interface Schedule {
-  time: string;
-  title: string;
-  description: string;
-  location: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  day: string;
-}
-
+import { Users, Camera, Mountain, Utensils, Bus, Hotel, Waves } from 'lucide-react';
+export interface Schedule { time: string; title: string; description: string; location: string; icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; day: string; }
 export const SCHEDULES: Schedule[] = [
-  // Sabtu
-  {
-    day: 'Sabtu',
-    time: '05:00 - 05:30',
-    title: 'Persiapan Berangkat',
-    description: 'Registrasi & Persiapan keberangkatan di AMG Tower.',
-    location: 'Lobby AMG Tower',
-    icon: Users,
-  },
-  {
-    day: 'Sabtu',
-    time: '05:30 - 10.00',
-    title: 'Perjalanan menuju Tawangmangu',
-    description: 'Perjalanan Surabaya → Tawangmangu',
-    location: 'Bus',
-    icon: Bus,
-  },
-  {
-    day: 'Sabtu',
-    time: '10:00 - 12.00',
-    title: 'Offroad Jeep (start RM Soewatu)',
-    description:
-      'Petualangan offroad jeep di sekitar Tawangmangu dengan pemandangan alam yang indah.',
-    location: 'Tawangmangu',
-    icon: Mountain,
-  },
-  {
-    day: 'Sabtu',
-    time: '12:00 - 13:30',
-    title: 'Makan Siang & Istirahat (ISHOMA)',
-    description: 'Makan siang dengan pemandangan indah dan waktu istirahat.',
-    location: 'Restoran Tawangmangu',
-    icon: Utensils,
-  },
-  {
-    day: 'Sabtu',
-    time: '13:30 - 14:00',
-    title: 'Menuju Hotel Jawadwipa (Check-in)',
-    description:
-      'Perjalanan menuju Hotel Jawadwipa untuk check-in dan istirahat sejenak.',
-    location: 'Bus',
-    icon: Bus,
-  },
-  {
-    day: 'Sabtu',
-    time: '14:30 - 18:00',
-    title: 'Free Time',
-    description: 'Siapkan kostum terbaikmu!',
-    location: 'Hotel Jawadwipa',
-    icon: Hotel,
-  },
-  {
-    day: 'Sabtu',
-    time: '18:00 - 22:00',
-    title: 'Gala Dinner',
-    description: 'Show your character!',
-    location: 'Hotel Jawadwipa',
-    icon: Utensils,
-  },
-  {
-    day: 'Sabtu',
-    time: '22:00 - 07:00',
-    title: 'Istirahat',
-    description:
-      'Istirahat di hotel untuk mempersiapkan kegiatan hari berikutnya.',
-    location: 'Hotel Jawadwipa',
-    icon: Hotel,
-  },
-
-  // Minggu
-  {
-    day: 'Minggu',
-    time: '07:00 - 08:00',
-    title: 'Check-Out, Sarapan Pagi, & Foto Bersama',
-    description: 'Sarapan pagi bersama di restoran hotel.',
-    location: 'Hotel Jawadwipa',
-    icon: Utensils,
-  },
-  {
-    day: 'Minggu',
-    time: '08:45 - 09:30',
-    title: 'Perjalanan ke Rumah Atsiri',
-    description: 'Perjalanan menuju Rumah Atsiri.',
-    location: 'Bus',
-    icon: Bus,
-  },
-  {
-    day: 'Minggu',
-    time: '09:30 - 11:00',
-    title: 'Eksplorasi Rumah Atsiri',
-    description:
-      'Kegiatan edukasi di Rumah Atsiri dengan berbagai aktivitas menarik.',
-    location: 'Rumah Atsiri',
-    icon: Camera,
-  },
-  {
-    day: 'Minggu',
-    time: '11:00 - 13:00',
-    title: 'ISHOMA + Belanja oleh-oleh (RM Godong Gedang)',
-    description: 'Istirahat, makan siang, dan kesempatan belanja oleh-oleh.',
-    location: 'RM Godong Gedang',
-    icon: Utensils,
-  },
-  {
-    day: 'Minggu',
-    time: '13:00 - 13:10',
-    title: 'Penutupan oleh Panitia & Direksi',
-    description: 'Penutupan acara dan ucapan terima kasih kepada peserta.',
-    location: 'RM Godong Gedang',
-    icon: Utensils,
-  },
-  {
-    day: 'Minggu',
-    time: '12:30 - 18:00',
-    title: 'Perjalanan Pulang ke AMG Tower',
-    description: 'Perjalanan kembali ke Surabaya dengan bus.',
-    location: 'Bus',
-    icon: Bus,
-  },
+ { day: "Jumat, 18 September 2026", time: '22.00 – 22.15', title: 'Kumpul di Surabaya', description: 'Registrasi dan persiapan keberangkatan bersama.', location: 'Surabaya', icon: Users },
+ { day: "Jumat, 18 September 2026", time: '22.15 – 00.15', title: 'Perjalanan menuju Banyuwangi', description: 'Mulai perjalanan malam bersama dua medium bus.', location: 'Transportasi', icon: Bus },
+ { day: "Jumat, 18 September 2026", time: '04.30 – 05.00', title: 'Istirahat, sholat, bersih diri', description: 'Waktu singkat untuk memulihkan energi.', location: 'Rest area', icon: Hotel },
+ { day: "Jumat, 18 September 2026", time: '05.00 – 05.30', title: 'Pembagian Breakfast', description: 'Pembagian rice box untuk sarapan di perjalanan.', location: 'Rest area', icon: Utensils },
+ { day: 'Sabtu, 19 September 2026', time: '05.30 – 08.30', title: 'Pantai Mustika, Wedi Ireng, dan Spot T', description: 'Menikmati tiga destinasi pesisir Banyuwangi.', location: 'Banyuwangi Selatan', icon: Waves },
+ { day: 'Sabtu, 19 September 2026', time: '08.30 – 09.00', title: 'Bersih diri', description: 'Persiapan untuk perjalanan berikutnya.', location: 'Fasilitas destinasi', icon: Hotel },
+ { day: 'Sabtu, 19 September 2026', time: '09.00 – 11.00', title: 'Perjalanan ke De Djawatan', description: 'Bergerak menuju hutan trembesi.', location: 'Transportasi', icon: Bus },
+ { day: 'Sabtu, 19 September 2026', time: '11.00 – 12.00', title: 'De Djawatan Forest', description: 'Eksplorasi hutan dan sesi foto bersama.', location: 'De Djawatan', icon: Camera },
+ { day: 'Sabtu, 19 September 2026', time: '12.00 – 13.00', title: 'Ishoma', description: 'Istirahat, sholat, dan makan siang.', location: 'Resto Kampung Bethek', icon: Utensils },
+ { day: 'Sabtu, 19 September 2026', time: '13.00 – 14.30', title: 'Perjalanan menuju Hotel', description: 'Perjalanan dan check-in preparation.', location: 'Transportasi', icon: Bus },
+ { day: 'Sabtu, 19 September 2026', time: '14.30 – 15.00', title: 'Check-in Hotel', description: 'Pembagian kamar dan waktu untuk beristirahat.', location: 'Hotel', icon: Hotel },
+ { day: 'Sabtu, 19 September 2026', time: '15.00 – 18.00', title: 'Free time & persiapan Gala Dinner', description: 'Waktu personal dan persiapan malam keakraban.', location: 'Hotel', icon: Users },
+ { day: 'Sabtu, 19 September 2026', time: '18.00 – 21.30', title: 'Gala Dinner', description: 'Malam keakraban, makan malam, dan perayaan bersama.', location: 'Venue Gala Dinner', icon: Utensils },
+ { day: 'Minggu, 20 September 2026', time: '07.00 – 08.00', title: 'Breakfast Hotel', description: 'Sarapan sebelum perjalanan pulang.', location: 'Hotel', icon: Utensils },
+ { day: 'Minggu, 20 September 2026', time: '08.00 – 09.00', title: 'Checkout Hotel', description: 'Persiapan meninggalkan hotel.', location: 'Hotel', icon: Hotel },
+ { day: 'Minggu, 20 September 2026', time: '09.00 – 09.30', title: 'Perjalanan ke pusat oleh-oleh', description: 'Berangkat untuk sesi belanja oleh-oleh.', location: 'Transportasi', icon: Bus },
+ { day: 'Minggu, 20 September 2026', time: '09.30 – 10.00', title: 'Shopping', description: 'Membeli oleh-oleh khas perjalanan.', location: 'Pusat oleh-oleh', icon: Users },
+ { day: 'Minggu, 20 September 2026', time: '10.00 – 13.00', title: 'Perjalanan pulang', description: 'Melanjutkan perjalanan menuju Surabaya.', location: 'Transportasi', icon: Bus },
+ { day: 'Minggu, 20 September 2026', time: '13.00 – 14.00', title: 'Ishoma', description: 'Istirahat dan makan siang.', location: 'Warung Kencur Probolinggo', icon: Utensils },
+ { day: 'Minggu, 20 September 2026', time: '14.00 – 16.30', title: 'Melanjutkan perjalanan', description: 'Perjalanan akhir menuju Surabaya.', location: 'Transportasi', icon: Bus },
+ { day: 'Minggu, 20 September 2026', time: '16.30 – 17.00', title: 'Sampai di Surabaya', description: 'Penutupan perjalanan gathering 2026.', location: 'Surabaya', icon: Users },
 ];
