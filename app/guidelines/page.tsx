@@ -1,8 +1,111 @@
 import { AlertTriangle, Check, Shirt, Sun, Waves } from 'lucide-react';
 
-const bring = ['Pakaian ganti untuk 3 hari 2 malam', 'Kaos Gathering yang diberikan panitia', 'Kostum karakter untuk Gala Dinner & aksesori', 'Jaket, sandal, dan sepatu yang nyaman', 'Obat-obatan pribadi', 'Sunscreen dan topi untuk aktivitas outdoor', 'Plastik / kresek kecil untuk melindungi HP, earphone, dan powerbank saat aktivitas air atau boat'];
-const avoid = ['Benda berbahaya dan senjata tajam', 'Zat terlarang atau obat tanpa izin', 'Barang bernilai tinggi dan uang tunai berlebih', 'Barang pribadi yang berpotensi mengganggu kegiatan'];
+const bring = [
+  'Pakaian ganti untuk 3 hari 2 malam',
+  'Kaos Gathering yang diberikan panitia',
+  'Kostum karakter untuk Gala Dinner & aksesori',
+  'Jaket, sandal, dan sepatu yang nyaman',
+  'Obat-obatan pribadi',
+  'Sunscreen dan topi untuk aktivitas outdoor',
+  'Plastik / kresek kecil untuk melindungi HP, earphone, dan powerbank saat aktivitas air atau boat',
+];
+const avoid = [
+  'Benda berbahaya dan senjata tajam',
+  'Zat terlarang atau obat tanpa izin',
+  'Barang bernilai tinggi dan uang tunai berlebih',
+  'Barang pribadi yang berpotensi mengganggu kegiatan',
+];
 
 export default function GuidelinesPage() {
-  return <div className="min-h-screen bg-background"><section className="surface-dark px-6 py-24 lg:px-12"><div className="mx-auto max-w-7xl"><p className="section-kicker text-secondary">Pack light, live fully</p><h1 className="display-serif mt-5 max-w-3xl text-6xl leading-none text-primary-foreground sm:text-8xl">Panduan<br /><span className="text-secondary">perjalanan.</span></h1><p className="mt-8 max-w-xl text-primary-foreground/70">Beberapa hal kecil yang membantu tiga hari kita berjalan lebih nyaman, aman, dan menyenangkan.</p></div></section><section className="surface-paper px-6 py-20 lg:px-12"><div className="mx-auto max-w-7xl"><div className="grid gap-4 lg:grid-cols-2"><article className="rounded-2xl border border-border bg-background p-7"><div className="flex items-center gap-3"><Shirt className="size-6 text-accent" /><h2 className="display-serif text-3xl text-primary">Wajib dibawa</h2></div><ul className="mt-8 flex flex-col gap-4">{bring.map(item => <li key={item} className="flex gap-3 text-sm leading-6 text-muted-foreground"><Check className="mt-1 size-4 shrink-0 text-accent" />{item}</li>)}</ul></article><article className="surface-sand rounded-2xl p-7"><div className="flex items-center gap-3"><AlertTriangle className="size-6 text-accent" /><h2 className="display-serif text-3xl text-primary">Tidak dibawa</h2></div><ul className="mt-8 flex flex-col gap-4">{avoid.map(item => <li key={item} className="flex gap-3 text-sm leading-6 text-secondary-foreground"><span className="mt-2 size-2 shrink-0 rounded-full bg-accent" />{item}</li>)}</ul></article></div><div className="mt-4 grid gap-4 md:grid-cols-2"><div className="surface-dark rounded-2xl p-7"><Sun className="size-6 text-secondary" /><p className="section-kicker mt-10 text-secondary">Dress code</p><h2 className="display-serif mt-3 text-3xl text-primary-foreground">Gathering shirt<br />& dark bottoms.</h2><p className="mt-4 text-sm leading-6 text-primary-foreground/70">Hari keberangkatan gunakan kaos gathering dan bawahan gelap. Malam hari: Movie Character Costume.</p></div><div className="rounded-2xl border border-border bg-background p-7"><Waves className="size-6 text-accent" /><p className="section-kicker mt-10">Waterproof note</p><h2 className="display-serif mt-3 text-3xl text-primary">Lindungi<br />barang elektronik.</h2><p className="mt-4 text-sm leading-6 text-muted-foreground">Saat aktivitas boat atau area pantai, simpan barang penting di plastik kedap air.</p></div></div></div></section></div>;
+  return (
+    <div className="min-h-screen bg-background">
+      <section className="surface-dark px-6 py-24 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <p className="section-kicker text-secondary">
+            Pack light, live fully
+          </p>
+          <h1 className="display-serif mt-5 max-w-3xl text-6xl leading-none text-primary-foreground sm:text-8xl">
+            Panduan
+            <br />
+            <span className="text-secondary">perjalanan.</span>
+          </h1>
+          <p className="mt-8 max-w-xl text-primary-foreground/70">
+            Beberapa hal kecil yang membantu tiga hari kita berjalan lebih
+            nyaman, aman, dan menyenangkan.
+          </p>
+        </div>
+      </section>
+      <section className="surface-paper px-6 py-20 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-4 lg:grid-cols-2">
+            <article className="rounded-2xl border border-border bg-background p-7">
+              <div className="flex items-center gap-3">
+                <Shirt className="size-6 text-accent" />
+                <h2 className="display-serif text-3xl text-primary">
+                  Wajib dibawa
+                </h2>
+              </div>
+              <ul className="mt-8 flex flex-col gap-4">
+                {bring.map(item => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-6 text-muted-foreground"
+                  >
+                    <Check className="mt-1 size-4 shrink-0 text-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="surface-sand rounded-2xl p-7">
+              <div className="flex items-center gap-3">
+                <AlertTriangle className="size-6 text-accent" />
+                <h2 className="display-serif text-3xl text-primary">
+                  Tidak dibawa
+                </h2>
+              </div>
+              <ul className="mt-8 flex flex-col gap-4">
+                {avoid.map(item => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-6 text-secondary-foreground"
+                  >
+                    <span className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="surface-dark rounded-2xl p-7">
+              <Sun className="size-6 text-secondary" />
+              <p className="section-kicker mt-10 text-secondary">Dress code</p>
+              <h2 className="display-serif mt-3 text-3xl text-primary-foreground">
+                Gathering shirt
+                <br />& dark bottoms.
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
+                Hari keberangkatan gunakan kaos gathering dan bawahan gelap.
+                Malam hari: Movie Character Costume.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-background p-7">
+              <Waves className="size-6 text-accent" />
+              <p className="section-kicker mt-10">Waterproof note</p>
+              <h2 className="display-serif mt-3 text-3xl text-primary">
+                Lindungi
+                <br />
+                barang elektronik.
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                Saat aktivitas boat atau area pantai, simpan barang penting di
+                plastik kedap air.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }

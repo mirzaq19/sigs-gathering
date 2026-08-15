@@ -52,25 +52,101 @@
   --font-mono-face: 'Geist Mono', monospace;
 }
 
-* { @apply border-border outline-ring/50; }
-html { @apply bg-background scroll-smooth; }
-body { @apply bg-background text-foreground font-sans antialiased; }
-.paper-grain { background-image: radial-gradient(oklch(0.22 0.035 165 / 0.08) 0.6px, transparent 0.6px); background-size: 7px 7px; }
-.display-serif { @apply font-serif tracking-tight; }
-.section-kicker { @apply font-mono text-xs uppercase tracking-[0.22em] text-accent; }
-.eyebrow-line { @apply flex items-center gap-3; }
-.eyebrow-line::before { content: ''; @apply h-px w-10 bg-accent; }
-.dark { --background: oklch(0.17 0.035 165); --foreground: oklch(0.96 0.018 90); --card: oklch(0.22 0.04 165); --card-foreground: oklch(0.96 0.018 90); --muted: oklch(0.27 0.04 165); --muted-foreground: oklch(0.78 0.025 90); --border: oklch(1 0 0 / 12%); --input: oklch(1 0 0 / 15%); }
-.badge-outline { @apply rounded-full border border-primary-foreground/30 px-3 py-1 font-mono text-[10px] uppercase tracking-widest; }
-.surface-dark { @apply bg-primary text-primary-foreground; }
-.surface-sand { @apply bg-secondary text-secondary-foreground; }
-.surface-paper { @apply bg-card text-card-foreground; }
-.gradient-bg { background: linear-gradient(135deg, var(--primary), var(--teal)); }
-.seat-available { background: var(--pastel); color: var(--secondary-foreground); }
-.seat-selected { background: var(--teal); color: var(--primary-foreground); }
-.seat-occupied { background: var(--muted-foreground); color: var(--primary-foreground); }
-.carousel-fade { animation: carousel-fade 0.5s ease-out; }
-@keyframes carousel-fade { from { opacity: 0.35; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-button, a { @apply transition-colors; }
-:focus-visible { @apply outline-2 outline-offset-4 outline-ring; }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .carousel-fade { animation: none; } }
+* {
+  @apply border-border outline-ring/50;
+}
+html {
+  @apply bg-background scroll-smooth;
+}
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+.paper-grain {
+  background-image: radial-gradient(
+    oklch(0.22 0.035 165 / 0.08) 0.6px,
+    transparent 0.6px
+  );
+  background-size: 7px 7px;
+}
+.display-serif {
+  @apply font-serif tracking-tight;
+}
+.section-kicker {
+  @apply font-mono text-sm uppercase tracking-[0.22em] text-accent;
+}
+.eyebrow-line {
+  @apply flex items-center gap-3;
+}
+.eyebrow-line::before {
+  content: '';
+  @apply h-px w-10 bg-accent;
+}
+.dark {
+  --background: oklch(0.17 0.035 165);
+  --foreground: oklch(0.96 0.018 90);
+  --card: oklch(0.22 0.04 165);
+  --card-foreground: oklch(0.96 0.018 90);
+  --muted: oklch(0.27 0.04 165);
+  --muted-foreground: oklch(0.78 0.025 90);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+}
+.badge-outline {
+  @apply rounded-full border border-primary-foreground/30 px-3 py-1 font-mono text-xs uppercase tracking-widest;
+}
+.surface-dark {
+  @apply bg-primary text-primary-foreground;
+}
+.surface-sand {
+  @apply bg-secondary text-secondary-foreground;
+}
+.surface-paper {
+  @apply bg-card text-card-foreground;
+}
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary), var(--teal));
+}
+.seat-available {
+  background: var(--pastel);
+  color: var(--secondary-foreground);
+}
+.seat-selected {
+  background: var(--teal);
+  color: var(--primary-foreground);
+}
+.seat-occupied {
+  background: var(--muted-foreground);
+  color: var(--primary-foreground);
+}
+.carousel-fade {
+  animation: carousel-fade 0.5s ease-out;
+}
+@keyframes carousel-fade {
+  from {
+    opacity: 0.35;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+button,
+a {
+  @apply transition-colors;
+}
+:focus-visible {
+  @apply outline-2 outline-offset-4 outline-ring;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .carousel-fade {
+    animation: none;
+  }
+}

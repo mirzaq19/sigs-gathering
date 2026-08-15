@@ -1,5 +1,50 @@
 import { UsersRound, Trophy } from 'lucide-react';
 
 export default function TeamsPage() {
-  return <div className="min-h-screen bg-background"><section className="surface-dark px-6 py-24 lg:px-12"><div className="mx-auto max-w-7xl"><p className="section-kicker text-secondary">The crew</p><h1 className="display-serif mt-5 text-6xl text-primary-foreground sm:text-8xl">One team,<br /><span className="text-secondary">many stories.</span></h1><p className="mt-8 max-w-xl text-primary-foreground/70">Pembagian kelompok transportasi dan fun games akan diumumkan setelah data final tersedia.</p></div></section><section className="surface-paper px-6 py-20 lg:px-12"><div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2"><article className="surface-sand rounded-2xl p-8"><UsersRound className="size-7 text-accent" /><p className="section-kicker mt-12">Transport group</p><h2 className="display-serif mt-3 text-4xl text-primary">Boat / transport<br />menyusul.</h2><p className="mt-4 text-sm leading-6 text-secondary-foreground">Daftar kelompok dan manifest perjalanan akan tersedia di sini.</p></article><article className="surface-dark rounded-2xl p-8"><Trophy className="size-7 text-secondary" /><p className="section-kicker mt-12 text-secondary">Game group</p><h2 className="display-serif mt-3 text-4xl text-primary-foreground">Fun games<br />menyusul.</h2><p className="mt-4 text-sm leading-6 text-primary-foreground/70">Nama tim, kapten, dan aturan permainan akan diumumkan panitia.</p></article></div></section></div>;
+  return (
+    <div className="min-h-screen bg-background">
+      <section className="surface-dark px-6 py-24 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <p className="section-kicker text-secondary">The crew</p>
+          <h1 className="display-serif mt-5 text-6xl text-primary-foreground sm:text-8xl">
+            One team,
+            <br />
+            <span className="text-secondary">many stories.</span>
+          </h1>
+          <p className="mt-8 max-w-xl text-primary-foreground/70">
+            Pembagian kelompok transportasi dan fun games akan diumumkan setelah
+            data final tersedia.
+          </p>
+        </div>
+      </section>
+      <section className="surface-paper px-6 py-20 lg:px-12">
+        <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
+          <article className="surface-sand rounded-2xl p-8">
+            <UsersRound className="size-7 text-accent" />
+            <p className="section-kicker mt-12">Transport group</p>
+            <h2 className="display-serif mt-3 text-4xl text-primary">
+              Boat / transport
+              <br />
+              menyusul.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-secondary-foreground">
+              Daftar kelompok dan manifest perjalanan akan tersedia di sini.
+            </p>
+          </article>
+          <article className="surface-dark rounded-2xl p-8">
+            <Trophy className="size-7 text-secondary" />
+            <p className="section-kicker mt-12 text-secondary">Game group</p>
+            <h2 className="display-serif mt-3 text-4xl text-primary-foreground">
+              Fun games
+              <br />
+              menyusul.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
+              Nama tim, kapten, dan aturan permainan akan diumumkan panitia.
+            </p>
+          </article>
+        </div>
+      </section>
+    </div>
+  );
 }

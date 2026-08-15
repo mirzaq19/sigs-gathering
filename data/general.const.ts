@@ -5,5 +5,6 @@ export const GENERAL_INFO = {
   endDate: '2026-09-20',
   location: 'Banyuwangi, Jawa Timur, Indonesia',
   meetingPoint: 'AMG Tower, Surabaya',
-  description: 'Tiga hari untuk melangkah lebih jauh, menikmati alam Banyuwangi, dan memperkuat kebersamaan sebagai satu tim SIG Surabaya.',
+  description:
+    'Tiga hari untuk melangkah lebih jauh, menikmati alam Banyuwangi, dan memperkuat kebersamaan sebagai satu tim SIG Surabaya.',
 };

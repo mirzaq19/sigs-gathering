@@ -5,17 +5,168 @@ import { Bus, Check, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const occupiedSeats = new Set(['1A', '2D', '4B', '5C', '7A', '8D', '10B', '12C']);
+const occupiedSeats = new Set([
+  '1A',
+  '2D',
+  '4B',
+  '5C',
+  '7A',
+  '8D',
+  '10B',
+  '12C',
+]);
 
 export default function TransportationPage() {
   const [selectedSeat, setSelectedSeat] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState<string | null>(null);
-  const seats = Array.from({ length: 12 }, (_, row) => row + 1).flatMap((row) => ['A', 'B', 'C', 'D'].map((letter) => `${row}${letter}`));
+  const seats = Array.from({ length: 12 }, (_, row) => row + 1).flatMap(row =>
+    ['A', 'B', 'C', 'D'].map(letter => `${row}${letter}`)
+  );
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="gradient-bg py-20"><div className="mx-auto max-w-7xl px-4 text-center text-primary-foreground sm:px-6 lg:px-8"><p className="section-kicker text-secondary">SIG Surabaya · Banyuwangi 2026</p><h1 className="display-serif mt-4 text-5xl sm:text-7xl">Transportation</h1><p className="mx-auto mt-6 max-w-3xl text-lg text-primary-foreground/85">Pilih kursi favorit Anda untuk perjalanan menuju lokasi Employee Gathering.</p></div></section>
-      <section className="surface-paper px-4 py-12 sm:px-6 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-12 grid gap-6 md:grid-cols-3"><Card className="text-center"><CardHeader><Bus className="mx-auto size-8 text-teal" /><CardTitle>Departure</CardTitle></CardHeader><CardContent><p className="text-muted-foreground">Jumat, 18 September 2026</p><p className="text-muted-foreground">07:00 WIB</p><p className="text-sm text-muted-foreground">AMG Tower Surabaya</p></CardContent></Card><Card className="text-center"><CardHeader><Bus className="mx-auto size-8 text-teal" /><CardTitle>Journey Time</CardTitle></CardHeader><CardContent><p className="text-muted-foreground">Perjalanan bersama</p><p className="text-sm text-muted-foreground">Dengan pemberhentian scenic</p></CardContent></Card><Card className="text-center"><CardHeader><Bus className="mx-auto size-8 text-teal" /><CardTitle>Return</CardTitle></CardHeader><CardContent><p className="text-muted-foreground">Minggu, 20 September 2026</p><p className="text-muted-foreground">Menuju Surabaya</p><p className="text-sm text-muted-foreground">Dari Banyuwangi</p></CardContent></Card></div><div className="mx-auto max-w-4xl"><div className="mb-8 text-center"><h2 className="display-serif text-4xl text-primary">Pilih Kursi Anda</h2><div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground"><span><i className="mr-2 inline-block size-4 rounded bg-pastel" />Tersedia</span><span><i className="mr-2 inline-block size-4 rounded bg-teal" />Dipilih</span><span><i className="mr-2 inline-block size-4 rounded bg-muted-foreground" />Terisi</span></div></div><div className="rounded-2xl border border-border bg-card p-5 shadow-lg sm:p-8"><div className="mb-6 flex justify-center"><div className="flex items-center gap-2 rounded-t-full bg-muted px-8 py-2 text-xs text-muted-foreground"><User className="size-4" />Driver</div></div><div className="flex flex-col gap-3">{Array.from({ length: 12 }, (_, index) => { const row = index + 1; return <div key={row} className="grid grid-cols-[1fr_1fr_.6fr_1fr_1fr] gap-2">{['A', 'B', '', 'C', 'D'].map((letter, seatIndex) => { if (!letter) return <div key={`${row}-aisle`} aria-hidden="true" />; const id = `${row}${letter}`; const occupied = occupiedSeats.has(id); const selected = selectedSeat === id; return <button key={id} type="button" disabled={occupied} onClick={() => setSelectedSeat(id)} aria-label={`Kursi ${id}${occupied ? ', terisi' : ''}`} className={`rounded-lg p-2 text-xs font-semibold transition hover:scale-105 disabled:cursor-not-allowed ${occupied ? 'seat-occupied' : selected ? 'seat-selected scale-110' : 'seat-available hover:bg-teal hover:text-primary-foreground'}`}>{id}</button>; })}</div>; })}</div>{selectedSeat && <div className="mt-8 text-center"><p className="text-lg text-foreground">Kursi Terpilih: <span className="font-bold text-teal">{selectedSeat}</span></p><Button onClick={() => setConfirmed(selectedSeat)} className="mt-4 bg-teal text-primary-foreground hover:bg-primary"><Check data-icon="inline-start" />Konfirmasi Pilihan</Button>{confirmed && <p className="mt-4 text-sm font-semibold text-teal">Kursi {confirmed} telah dikonfirmasi.</p>}</div>}</div></div></div></section>
+      <section className="gradient-bg py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center text-primary-foreground sm:px-6 lg:px-8">
+          <p className="section-kicker text-secondary">
+            SIG Surabaya · Banyuwangi 2026
+          </p>
+          <h1 className="display-serif mt-4 text-5xl sm:text-7xl">
+            Transportation
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-primary-foreground/85">
+            Pilih kursi favorit Anda untuk perjalanan menuju lokasi Employee
+            Gathering.
+          </p>
+        </div>
+      </section>
+      <section className="surface-paper px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 grid gap-6 md:grid-cols-3">
+            <Card className="text-center">
+              <CardHeader>
+                <Bus className="mx-auto size-8 text-teal" />
+                <CardTitle>Departure</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Jumat, 18 September 2026
+                </p>
+                <p className="text-muted-foreground">07:00 WIB</p>
+                <p className="text-sm text-muted-foreground">
+                  AMG Tower Surabaya
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardHeader>
+                <Bus className="mx-auto size-8 text-teal" />
+                <CardTitle>Journey Time</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">Perjalanan bersama</p>
+                <p className="text-sm text-muted-foreground">
+                  Dengan pemberhentian scenic
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardHeader>
+                <Bus className="mx-auto size-8 text-teal" />
+                <CardTitle>Return</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Minggu, 20 September 2026
+                </p>
+                <p className="text-muted-foreground">Menuju Surabaya</p>
+                <p className="text-sm text-muted-foreground">Dari Banyuwangi</p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-8 text-center">
+              <h2 className="display-serif text-4xl text-primary">
+                Pilih Kursi Anda
+              </h2>
+              <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+                <span>
+                  <i className="mr-2 inline-block size-4 rounded bg-pastel" />
+                  Tersedia
+                </span>
+                <span>
+                  <i className="mr-2 inline-block size-4 rounded bg-teal" />
+                  Dipilih
+                </span>
+                <span>
+                  <i className="mr-2 inline-block size-4 rounded bg-muted-foreground" />
+                  Terisi
+                </span>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-lg sm:p-8">
+              <div className="mb-6 flex justify-center">
+                <div className="flex items-center gap-2 rounded-t-full bg-muted px-8 py-2 text-xs text-muted-foreground">
+                  <User className="size-4" />
+                  Driver
+                </div>
+              </div>
+              <div className="flex flex-col gap-3">
+                {Array.from({ length: 12 }, (_, index) => {
+                  const row = index + 1;
+                  return (
+                    <div
+                      key={row}
+                      className="grid grid-cols-[1fr_1fr_.6fr_1fr_1fr] gap-2"
+                    >
+                      {['A', 'B', '', 'C', 'D'].map((letter, seatIndex) => {
+                        if (!letter)
+                          return (
+                            <div key={`${row}-aisle`} aria-hidden="true" />
+                          );
+                        const id = `${row}${letter}`;
+                        const occupied = occupiedSeats.has(id);
+                        const selected = selectedSeat === id;
+                        return (
+                          <button
+                            key={id}
+                            type="button"
+                            disabled={occupied}
+                            onClick={() => setSelectedSeat(id)}
+                            aria-label={`Kursi ${id}${occupied ? ', terisi' : ''}`}
+                            className={`rounded-lg p-2 text-xs font-semibold transition hover:scale-105 disabled:cursor-not-allowed ${occupied ? 'seat-occupied' : selected ? 'seat-selected scale-110' : 'seat-available hover:bg-teal hover:text-primary-foreground'}`}
+                          >
+                            {id}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
+              {selectedSeat && (
+                <div className="mt-8 text-center">
+                  <p className="text-lg text-foreground">
+                    Kursi Terpilih:{' '}
+                    <span className="font-bold text-teal">{selectedSeat}</span>
+                  </p>
+                  <Button
+                    onClick={() => setConfirmed(selectedSeat)}
+                    className="mt-4 bg-teal text-primary-foreground hover:bg-primary"
+                  >
+                    <Check data-icon="inline-start" />
+                    Konfirmasi Pilihan
+                  </Button>
+                  {confirmed && (
+                    <p className="mt-4 text-sm font-semibold text-teal">
+                      Kursi {confirmed} telah dikonfirmasi.
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
