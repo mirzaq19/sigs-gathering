@@ -40,23 +40,23 @@ export function MusicPlayer() {
   const playlist: Track[] = [
     {
       id: 1,
-      title: 'Sunflower',
-      artist: 'Post Malone',
-      src: '/musics/sunflower.mp3', // This would be a real audio file
+      title: 'Sweet Disposition',
+      artist: 'The Temper Trap',
+      src: '/musics/temper-trap-sweet-disposition.mp3', // This would be a real audio file
       duration: 161,
     },
     {
       id: 2,
-      title: 'Kungfu Fighting',
-      artist: 'Jack Black',
-      src: '/musics/kungfu-fighting.mp3', // This would be a real audio file
+      title: 'Jalan Jalan',
+      artist: 'Shaggydog',
+      src: '/musics/shaggydog-jalan-jalan.mp3', // This would be a real audio file
       duration: 150,
     },
     {
       id: 3,
-      title: 'Welcome to the Jungle',
-      artist: 'Motivational Sounds',
-      src: '/musics/welcome-to-the-jungle.mp3', // This would be a real audio file
+      title: 'Baianá',
+      artist: 'Barbatuques',
+      src: '/musics/barbatuques-baiana.mp3', // This would be a real audio file
       duration: 270,
     },
   ];
@@ -150,7 +150,7 @@ export function MusicPlayer() {
       audio.removeEventListener('error', handleError);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentTrackIndex]);
+  }, [currentTrackIndex, isPlaying, hasUserInteracted]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -195,17 +195,15 @@ export function MusicPlayer() {
     setCurrentTrackIndex(nextIndex);
     setCurrentTime(0);
 
-    // Continue playing the next track for infinite playback
-    if (isPlaying || hasUserInteracted) {
-      setTimeout(() => {
-        audioRef.current
-          ?.play()
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(console.error);
-      }, 100);
-    }
+    // Always attempt to play next track for infinite playback
+    setTimeout(() => {
+      audioRef.current
+        ?.play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(console.error);
+    }, 100);
   };
 
   const previousTrack = () => {
@@ -214,17 +212,15 @@ export function MusicPlayer() {
     setCurrentTrackIndex(prevIndex);
     setCurrentTime(0);
 
-    // Continue playing the previous track
-    if (isPlaying) {
-      setTimeout(() => {
-        audioRef.current
-          ?.play()
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(console.error);
-      }, 100);
-    }
+    // Always attempt to play previous track for infinite playback
+    setTimeout(() => {
+      audioRef.current
+        ?.play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(console.error);
+    }, 100);
   };
 
   const handleSeek = (newTime: number[]) => {
@@ -265,7 +261,7 @@ export function MusicPlayer() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.9 }}
               transition={{ duration: 0.2 }}
-              className="mb-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-teal/20 bg-background/95 p-3 sm:p-4 w-full max-w-80 sm:w-80"
+              className="mb-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-teal/20 p-3 sm:p-4 w-full max-w-80 sm:w-80"
             >
               {/* Track Info - Responsive */}
               <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
@@ -308,7 +304,7 @@ export function MusicPlayer() {
                     variant="ghost"
                     size="sm"
                     onClick={previousTrack}
-                    className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-purple-100"
+                    className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-gradient-to-br hover:from-teal hover:to-primary"
                   >
                     <SkipBack className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
@@ -318,7 +314,7 @@ export function MusicPlayer() {
                     size="sm"
                     onClick={togglePlay}
                     disabled={isLoading}
-                    className="h-8 w-8 sm:h-10 sm:w-10 p-0 hover:bg-purple-100"
+                    className="h-8 w-8 sm:h-10 sm:w-10 p-0 hover:bg-gradient-to-br hover:from-teal hover:to-primary"
                   >
                     {isLoading ? (
                       <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-[#307B8E] border-t-transparent rounded-full animate-spin" />
@@ -333,7 +329,7 @@ export function MusicPlayer() {
                     variant="ghost"
                     size="sm"
                     onClick={nextTrack}
-                    className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-purple-100"
+                    className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-gradient-to-br hover:from-teal hover:to-primary"
                   >
                     <SkipForward className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
@@ -345,7 +341,7 @@ export function MusicPlayer() {
                     variant="ghost"
                     size="sm"
                     onClick={toggleMute}
-                    className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-purple-100"
+                    className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-gradient-to-br hover:from-teal hover:to-primary"
                   >
                     {isMuted ? (
                       <VolumeX className="w-3 h-3 sm:w-4 sm:h-4" />

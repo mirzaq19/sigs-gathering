@@ -53,7 +53,7 @@ export default function IntroSection() {
                 transition={{ delay: index * 0.1 }}
                 className="flex flex-col gap-4 rounded-2xl border border-border bg-background p-6 sm:min-h-72"
               >
-                <div className='flex gap-4 items-center'>
+                <div className="flex gap-4 items-center">
                   <value.icon className="size-7 text-accent" />
                   <p className="section-kicker leading-normal">{value.label}</p>
                 </div>
@@ -84,10 +84,10 @@ export default function IntroSection() {
             <p className="section-kicker !text-teal">Highlight</p>
             <p className="display-serif mt-5 text-5xl text-teal">18 - 20</p>
             <p className="mt-2 text-sm text-secondary-foreground">
-              <span className='font-medium text-2xl'>September 2026</span>
+              <span className="font-medium text-2xl">September 2026</span>
             </p>
-            <p className='mt-4 flex items-center'>
-              <Pin className='inline-block size-5 mr-2'/>
+            <p className="mt-4 flex items-center">
+              <Pin className="inline-block size-5 mr-2" />
               Banyuwangi
             </p>
           </div>
