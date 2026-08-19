@@ -35,13 +35,12 @@ export default function HeroSection() {
             One Journey, One Nature, One Team.
           </div>
           <p className="mt-2 max-w-xl text-base leading-7 text-primary-foreground/75">
-            Mari berangkat bersama, menikmati pesisir dan hutan Banyuwangi, lalu
-            pulang membawa cerita baru.
+            Mari satukan energi dalam perjalanan yang positif!!!
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-primary-foreground/85">
             <span className="badge-outline">
               <CalendarDays className="mr-2 inline size-3" />
-              18 - 20 September 2026
+              19 - 20 September 2026
             </span>
             <span className="badge-outline">
               <MapPin className="mr-2 inline size-3" />
@@ -59,8 +58,9 @@ export default function HeroSection() {
                 eventDate={new Date('2026-09-18T07:00:00+07:00')}
               />
             </div>
-            <p className='text-center text-sm'>
-              Banyuwangi is calling! Yuk, sejenak melepas penat dan nikmati serunya petualangan bersama.
+            <p className="text-center text-sm">
+              Banyuwangi is calling! Recharge energy dalam kebersamaan One
+              Journey, One Nature, One Team
             </p>
             <Link
               href="#journey"
