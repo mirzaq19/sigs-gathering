@@ -133,10 +133,6 @@ export default function SponsorsSection() {
           <br />
           make it possible.
         </h2>
-        <p className="mt-5 max-w-sm text-sm leading-6 text-secondary-foreground">
-          Sponsor dan partner gathering tahun lalu hadir kembali sebagai bagian
-          dari perjalanan kita.
-        </p>
 
         {/* Coming soon */}
         <div className="mt-8 rounded-lg border-4 border-dashed !border-primary/70 bg-background p-12 text-center">
