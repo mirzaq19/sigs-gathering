@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="text-left text-xs leading-5 text-primary-foreground/60 sm:text-right">
           Banyuwangi, Jawa Timur
           <br />
-          18 - 20 September 2026
+          19 - 20 September 2026
           <br />© 2026 IT SIGS Team
         </div>
       </div>
