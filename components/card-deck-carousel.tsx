@@ -9,22 +9,7 @@ import {
   animate,
   type PanInfo,
   type Transition,
-} from 'framer-motion';
-
-/**
- * CardDeckCarousel (v3)
- * ----------------------
- * - Kartu depan bisa di-drag BEBAS ke segala arah (x & y), dengan tilt 3D
- *   (rotateX/rotateY) yang mengikuti posisi drag.
- * - Semua kartu SELALU di-render di DOM (tidak pernah di-slice/unmount),
- *   supaya kartu yang posisinya di luar `visibleCount` tetap bisa animasi
- *   fade-out & animasi kembali fade-in dengan mulus, bukan hilang instan.
- * - Kartu di luar `visibleCount` cuma "disamarkan" (opacity 0) dan
- *   ditumpuk tepat di belakang kartu terakhir yang terlihat.
- *
- * Install dulu:
- *   npm install framer-motion
- */
+} from 'motion/react';
 
 export interface DeckItem {
   src: string;
