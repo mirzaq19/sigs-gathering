@@ -41,11 +41,11 @@ export default function IntroSection() {
               Ready for Employee Gathering{' '}
               <span className="text-accent">2026</span>?
             </h2>
-            <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground">
+            {/* <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground">
               Yuk ikutan di acara Employee Gathering 2026! Saatnya membangun tim
               yang lebih solid, bersenang-senang bersama, dan menciptakan
               kenangan indah dengan seluruh rekan kerja.
-            </p>
+            </p> */}
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             {values.map((value, index) => (
