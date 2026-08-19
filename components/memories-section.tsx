@@ -17,17 +17,16 @@ export default function MemoriesSection() {
             <h2 className="display-serif text-5xl sm:text-6xl text-primary mb-6">
               Cerita dari
               <br />
-              <span className="text-secondary">tahun lalu.</span>
+              <span className="text-teal">tahun lalu.</span>
             </h2>
             <p className="text-base leading-7 text-muted-foreground mb-6">
-              Setiap gathering membawa cerita baru, tawa yang menggelegar, dan
-              momen-momen yang tak terlupakan. Lihat kembali kebersamaan tim SIG
-              Surabaya di gathering sebelumnya—inspirasi untuk petualangan baru
-              di Banyuwangi.
+              Setiap gathering memberi cerita baru, tawa canda serta momen yang
+              tak terlupakan. Kebersamaan menjadikan inspirasi untuk tetap
+              bertumbuh dalam budaya yang positif!!!
             </p>
             <div className="space-y-4">
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-1 bg-accent rounded-full"></div>
+                <div className="flex-shrink-0 w-1 bg-teal rounded-full"></div>
                 <div>
                   <p className="font-semibold text-primary">
                     Kebersamaan yang Autentik
@@ -39,7 +38,7 @@ export default function MemoriesSection() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-1 bg-accent rounded-full"></div>
+                <div className="flex-shrink-0 w-1 bg-teal rounded-full"></div>
                 <div>
                   <p className="font-semibold text-primary">
                     Kenangan yang Bermakna
@@ -51,7 +50,7 @@ export default function MemoriesSection() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-1 bg-accent rounded-full"></div>
+                <div className="flex-shrink-0 w-1 bg-teal rounded-full"></div>
                 <div>
                   <p className="font-semibold text-primary">
                     Tradisi Berlanjut
