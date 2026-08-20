@@ -55,17 +55,17 @@ const highlights = [
   {
     icon: Mountain,
     title: 'Spot T',
-    text: 'Eksplorasi alam Banyuwangi dengan lanskap yang berbeda dari rutinitas.',
+    text: 'Menikmati pemandangan Spot T berupa lorong laut diantara tebing karang yang indah dan menakjubkan.',
   },
   {
     icon: Camera,
-    title: 'De Djawatan',
+    title: 'De Djawatan Forest',
     text: 'Berjalan di bawah kanopi trembesi dan membuat foto perjalanan bersama.',
   },
   {
     icon: Ship,
-    title: 'Coastal Escape',
-    text: 'Nikmati udara pesisir dan momen santai bersama satu rombongan.',
+    title: 'Sunrise & Island Hopping',
+    text: 'Menikmati udara pesisir dan momen santai dengan pemandangan sunrise yang menakjubkan.',
   },
   {
     icon: Users,
@@ -74,8 +74,8 @@ const highlights = [
   },
   {
     icon: HatGlasses,
-    title: 'Best Costume',
-    text: 'Tampilkan karakter terbaikmu di malam gala dinner.',
+    title: 'Best Performance as Team',
+    text: 'Tampilkan kekompakan sebagai satu tim dengan menampilkan performa terbaikmu.',
   },
   {
     icon: Gift,
