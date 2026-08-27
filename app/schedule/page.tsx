@@ -31,8 +31,8 @@ export default function SchedulePage() {
         <div className="mx-auto max-w-4xl">
           {Object.entries(grouped).map(([day, items], dayIndex) => (
             <div key={day} className="mb-16">
-              <div className="mb-7 flex items-baseline justify-between border-b border-border pb-4">
-                <h2 className="display-serif text-3xl text-primary sm:text-4xl">
+              <div className="mb-7 flex flex-col md:flex-row gap-4 items-baseline justify-between border-b border-border pb-4">
+                <h2 className="display-serif text-2xl text-primary sm:text-4xl">
                   {day}
                 </h2>
                 <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -47,9 +47,9 @@ export default function SchedulePage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.03 }}
-                    className="grid gap-3 rounded-xl border border-border bg-background p-5 md:grid-cols-[6rem_1fr_auto] md:items-center"
+                    className="grid gap-3 rounded-xl border border-border bg-background p-5 md:grid-cols-[7rem_1fr_auto] md:items-center"
                   >
-                    <div className="font-mono text-xs font-semibold text-accent">
+                    <div className="font-mono text-center md:text-left md:text-sm font-semibold text-accent">
                       {item.time}
                     </div>
                     <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
