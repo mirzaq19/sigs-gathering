@@ -19,75 +19,63 @@ const FAQSection = ({ className }: FAQSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [faqsAccordion, setFaqsAccordion] = useState<string[]>(() =>
-    Array.from({ length: 10 }, (_, i) => `item-${i}`)
+    Array.from({ length: 6 }, (_, i) => `item-${i}`)
   );
 
   const faqs = [
     {
-      question: 'Katanya mau Gathering, beneran nih?',
+      question: 'Gathering kali ini bakal kemana nih?',
+      answer: 'Tahun ini kita bakal seru-seruan bareng di Banyuwangi🌿✨',
+    },
+    {
+      question: 'Kapan sih kita cusnya?',
       answer:
-        'Bener banget! Bukan hoaks, bukan mimpi. Udah disiapin yang gokil!',
+        'Jangan lupa catat tanggalnya yess! <b>18–20 September 2026</b>. Kita akan berangkat tanggal 18 September 2026 malam pukul 22.00.',
     },
     {
-      question: 'Gatheringnya kemana tuh, Jalan-jalan doang apa gimana?',
-      answer: 'Jalan-jalan jelas dong. Asyikkk deh yg jelassss',
+      question: 'Pick-up point-nya dimana ya?',
+      answer: 'Pick-up dan drop-off di AMG Tower ya, tidak ada titik lain.',
     },
     {
-      question: 'Gathering ini ada tema nya ga sih? Ada kostum/dresscode nya?',
+      question: 'Kalau nggak bisa ikut gathering, izinnya gimana?',
       answer:
-        'Ada dong. Tema nya nanti di info lagi.🙈 Klo Dresscode nya Movie Character yaa 🎬🕸🤡',
+        'Wajib ikut ya!!😆 Kalau benar-benar tidak bisa, silakan izin dengan menghubungi Pak Aryo.',
     },
     {
-      question: 'Asyikkk, kapan kita capcusnya? Dimana tempatnya?',
-      answer: '13-14 September 2025, tempatnya di Tawangmangu 🏞️',
+      question: 'Kalau ada pertanyaan lain, harus menghubungi siapa ya?',
+      answer: 'Bisa hubungi ketua kami, Pak Iqbal.',
     },
     {
-      question: 'Pick Up Point nya dimana ya?',
-      answer: 'Pickup Point dan Drop Off hanya di AMG Tower yaa.. 🛵',
-    },
-    {
-      question: 'Kalau gabisa ikut Gathering izin gimana ?',
+      question: 'Katanya mau main ke pantai, bakal basah-basahan nggak nih?',
       answer:
-        'Upss, masa gabisa sih🧐🤨 Klo beneran gabisa ikut, bisa izin hubungi ke Pak Aryo yaa',
-    },
-    {
-      question: 'Dresscode movie character digunakan kapan ya ? ',
-      answer:
-        'Dresscode movie character digunakan pada malam hari pertama saat Gala Dinner, jadi pastikan kamu sudah mempersiapkan kostum yang keren ya!',
-    },
-    {
-      question: 'Kalo ada pertanyaan lain, siapa yang bisa dihubungi?',
-      answer:
-        'Kalo ada yang mau ditanyain, bisa hubungi pak ketua ya, <b>Kakak Bayu (085879663547)</b> 😄',
-    },
-    {
-      question: 'Katanya mau Offroad, basah dikit apa basah banget?',
-      answer: 'Basah dikit, tapi tetep bawa baju ganti yaa',
+        'Bisa jadi, baiknya sedia baju ganti dan pakai pakaian yang nyaman ya.',
     },
   ];
 
   return (
-    <section ref={ref} className={cn('bg-white', className)}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className={cn(className)}>
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-6"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-[#6A00FF]">FAQ</span> Section
+          <p className="eyebrow-line section-kicker">Need to know</p>
+          <h2 className="display-serif mt-5 text-5xl text-primary-foreground">
+            Pertanyaan
+            <br />
+            <span className="text-secondary">yang sering muncul.</span>
           </h2>
 
-          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Berikut adalah beberapa pertanyaan yang sering diajukan mengenai
-            acara Employee Gathering.
+          <p className="mt-5 max-w-2xl leading-7 text-primary-foreground">
+            Semua informasi penting sebelum kita berangkat ke Banyuwangi.
           </p>
         </motion.div>
 
         <Accordion
           type="multiple"
-          className="w-full space-y-4"
+          className="w-full space-y-3"
           value={faqsAccordion}
           onValueChange={setFaqsAccordion}
         >
@@ -99,14 +87,14 @@ const FAQSection = ({ className }: FAQSectionProps) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <AccordionItem
-                className="rounded-md overflow-hidden shadow-md"
+                className="overflow-hidden rounded-2xl border !border-b border-border bg-background"
                 key={index}
                 value={`item-${index}`}
               >
-                <AccordionTrigger className="cursor-pointer text-lg font-semibold text-gray-900 bg-white px-4 py-3 transition-colors hover:bg-gray-50">
+                <AccordionTrigger className="cursor-pointer px-5 py-5 text-left text-base font-semibold text-primary transition-colors hover:bg-muted">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-800 p-4 bg-violet-50">
+                <AccordionContent className="bg-card px-5 py-3 text-sm leading-6 text-muted-foreground">
                   {parse(faq.answer)}
                 </AccordionContent>
               </AccordionItem>
