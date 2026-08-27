@@ -196,7 +196,7 @@ export default function GuidelinesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="rounded-2xl bg-gradient-to-br from-secondary/10 to-teal/20 p-6"
+                className="rounded-2xl bg-gradient-to-br from-secondary/30 to-teal/20 p-6"
               >
                 <p className="font-mono text-xs uppercase tracking-widest text-teal">
                   {dressCode.date}
