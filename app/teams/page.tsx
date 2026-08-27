@@ -4,14 +4,10 @@ import { motion } from 'motion/react';
 import {
   CheckCircle2,
   Clock3,
-  Lightbulb,
-  MessageCircle,
   Music2,
   Palette,
   Send,
-  Shirt,
   Sparkles,
-  Trophy,
   UsersRound,
 } from 'lucide-react';
 
@@ -60,31 +56,17 @@ export default function TeamsPage() {
       </section>
 
       <section className="surface-paper px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="eyebrow-line section-kicker">Gala dinner theme</p>
-              <h2 className="display-serif mt-5 text-5xl text-primary sm:text-6xl">
-                Multiverse of
-                <br />
-                <span className="text-teal">Togetherness.</span>
-              </h2>
-            </div>
-            <div className="bg-secondary/50 rounded-2xl p-8 sm:p-10">
-              <Palette className="size-8 text-accent" />
-              <p className="section-kicker mt-6">Bebas total, satu tujuan</p>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-secondary-foreground">
-                Setiap divisi merepresentasikan “universe”-nya masing-masing
-                dengan kostum yang sepenuhnya berbeda dan tanpa tema utama yang
-                mengikat.
-              </p>
-              <p className="mt-5 max-w-2xl text-sm leading-6 text-secondary-foreground/80">
-                Perbedaan universe menggambarkan keunikan tiap divisi. Persatuan
-                sejati tidak terwujud karena kita serupa, melainkan karena kita
-                memilih untuk berdiri berdampingan.
-              </p>
-            </div>
-          </div>
+        <div className="mx-auto max-w-7xl text-center">
+          <p className="eyebrow-line section-kicker justify-center">
+            Gala dinner theme
+          </p>
+          <h2 className="display-serif mt-5 text-5xl text-primary sm:text-6xl">
+            Multiverse of <span className="text-teal">Togetherness.</span>
+          </h2>
+          <p className="mt-5 text-base leading-7 text-muted-foreground">
+            Setiap divisi merepresentasikan “universe”-nya masing-masing dengan
+            kostum yang sepenuhnya berbeda dan tanpa tema utama yang mengikat.
+          </p>
         </div>
       </section>
 
