@@ -10,9 +10,10 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/event-details', label: 'Destination' },
-  // { href: '/schedule', label: 'Itinerary' },
+  { href: '/schedule', label: 'Itinerary' },
   // { href: '/accommodation', label: 'Stay' },
-  // { href: '/guidelines', label: 'Panduan' },
+  { href: '/guidelines', label: 'Guidelines' },
+  { href: '/teams', label: 'Teams' },
   // { href: '/attendees', label: 'Peserta' },
 ];
 
