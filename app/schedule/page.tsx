@@ -47,18 +47,23 @@ export default function SchedulePage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.03 }}
-                    className="grid gap-3 rounded-xl border border-border bg-background p-5 md:grid-cols-[9rem_1fr_auto] md:items-center"
+                    className="grid gap-3 rounded-xl border border-border bg-background p-5 md:grid-cols-[6rem_1fr_auto] md:items-center"
                   >
-                    <span className="font-mono text-xs font-semibold text-accent">
+                    <div className="font-mono text-xs font-semibold text-accent">
                       {item.time}
-                    </span>
-                    <div>
-                      <h3 className="font-semibold text-primary">
-                        {item.title}
-                      </h3>
-                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                        {item.description}
-                      </p>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
+                      <div className="flex items-center rounded-full bg-accent p-4 md:p-3">
+                        <item.icon className="size-5 md:size-4 text-accent-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-primary">
+                          {item.title}
+                        </h3>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
                     <span className="flex items-center gap-1 text-xs text-muted-foreground">
                       <MapPin className="size-3" />
