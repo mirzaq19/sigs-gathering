@@ -147,7 +147,8 @@ export default function TeamsPage() {
                       src={example.src}
                       alt={`Contoh dress code ${index + 1}`}
                       fill
-                      sizes="(min-width: 1024px) 14vw, (min-width: 640px) 30vw, 45vw"
+                      unoptimized
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
