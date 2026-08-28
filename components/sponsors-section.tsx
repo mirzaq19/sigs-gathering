@@ -26,18 +26,8 @@ export default function SponsorsSection() {
       tier: 'silver',
     },
     {
-      name: 'PT. Equiva Ligand Indonesia',
-      logo: '/sponsors/equiva.jpg',
-      tier: 'silver',
-    },
-    {
       name: 'PT. Laborindo Sarana',
       logo: '/sponsors/laborindo.png',
-      tier: 'silver',
-    },
-    {
-      name: 'PT. Ditek Jaya',
-      logo: '/sponsors/ditek.png',
       tier: 'silver',
     },
     {
@@ -57,7 +47,7 @@ export default function SponsorsSection() {
     },
     {
       name: 'PT. Global Satria Aji',
-      logo: '/sponsors/gsa.jpeg',
+      logo: '/sponsors/gsa.png',
       tier: 'bronze',
     },
     {
@@ -66,21 +56,10 @@ export default function SponsorsSection() {
       tier: 'bronze',
     },
     {
-      name: 'PT. Berca Niaga Medika',
-      logo: '/sponsors/bnm.png',
-      tier: 'bronze',
-    },
-    {
-      name: 'PT. Multi Eka Chemicalindo',
-      logo: '/sponsors/mec.png',
-      tier: 'bronze',
-    },
-    {
       name: 'PT. Dipa Puspa Labsains',
       logo: '/sponsors/dipa.png',
       tier: 'bronze',
     },
-
     {
       name: 'PT. Sartonet Filtrasi Indonesia',
       logo: '/sponsors/sartonet.png',
@@ -92,8 +71,38 @@ export default function SponsorsSection() {
       tier: 'bronze',
     },
     {
-      name: 'PT. Gading Murni',
-      logo: '/sponsors/gading-murni.png',
+      name: 'PT. Murni Jaya Kianabadi',
+      logo: '/sponsors/mjk.jpeg',
+      tier: 'bronze',
+    },
+    {
+      name: 'CV. Kemuning Lestari',
+      logo: '/sponsors/kemuning.jpg',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Arasains',
+      logo: '/sponsors/arasains.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'CV. Cahaya Semesta',
+      logo: '/sponsors/cahaya.jpeg',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Samator Gas Industri',
+      logo: '/sponsors/samator.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Karunia Jasindo',
+      logo: '/sponsors/karunia.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Maja Bintang Indonesia',
+      logo: '/sponsors/majabintang.png',
       tier: 'bronze',
     },
   ];
@@ -127,19 +136,55 @@ export default function SponsorsSection() {
   return (
     <section className="surface-sand px-6 py-20 lg:px-12">
       <div className="mx-auto max-w-7xl">
-        <p className="section-kicker">Supported by</p>
-        <h2 className="display-serif mt-4 text-5xl text-primary">
+        <p className="eyebrow-line section-kicker">Supported by</p>
+        <h2 className="display-serif mt-4 mb-12 text-5xl text-primary">
           Partners who
           <br />
           make it possible.
         </h2>
 
         {/* Coming soon */}
-        <div className="mt-8 rounded-lg border-4 border-dashed !border-primary/70 bg-background p-12 text-center">
+        {/* <div className="mt-8 rounded-lg border-4 border-dashed !border-primary/70 bg-background p-12 text-center">
           <p className="display-serif font-semibold text-xl lg:text-4xl text-primary/60">
             Coming soon
           </p>
-        </div>
+        </div> */}
+
+        {/* All Sponsors */}
+        {sponsors.length > 0 && (
+          <motion.div
+            variants={sponsorsContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              {sponsors.map(sponsor => (
+                <Tooltip key={sponsor.name}>
+                  <TooltipTrigger asChild>
+                    <motion.div
+                      variants={sponsorVariants}
+                      className="group relative flex h-24 items-center justify-center overflow-hidden rounded-xl border border-secondary-foreground/15 bg-background/70 p-4"
+                    >
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={128}
+                        height={128}
+                        className="max-h-12 w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        unoptimized
+                      />
+                    </motion.div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{sponsor.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Platinum sponsor */}
         {/* {platinumSponsors.length > 0 && (
