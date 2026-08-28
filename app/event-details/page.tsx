@@ -7,6 +7,7 @@ import {
   ChevronRight,
   Gift,
   HatGlasses,
+  Hotel,
   MapPin,
   Mountain,
   Ship,
@@ -48,6 +49,14 @@ const destinations = [
     image: '/places/djawatan.webp',
     bgClass: "bg-[url('/places/djawatan.webp')]",
     icon: TreePine,
+  },
+  {
+    name: 'éL Hotel',
+    eyebrow: '05 / Hotel',
+    text: 'Menginap dan menikmati fasilitas hotel bersama dengan seluruh tim.',
+    image: '/places/elhotel.jpg',
+    bgClass: "bg-[url('/places/elhotel.jpg')]",
+    icon: Hotel,
   },
 ];
 
@@ -103,7 +112,7 @@ export default function EventDetailsPage() {
         aria-label="Destinasi Banyuwangi"
       >
         <div
-          className={`absolute inset-0 ${destination.bgClass} bg-cover bg-center opacity-30`}
+          className={`absolute inset-0 ${destination.bgClass} bg-cover bg-center opacity-40`}
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-7xl">
@@ -112,7 +121,8 @@ export default function EventDetailsPage() {
               The itinerary journal
             </p>
             <span className="font-mono text-xs text-primary-foreground/60">
-              {String(active + 1).padStart(2, '0')} / 04
+              {String(active + 1).padStart(2, '0')} /{' '}
+              {String(destinations.length).padStart(2, '0')}
             </span>
           </div>
           <div className="mt-20 grid min-h-[420px] items-end gap-8 lg:grid-cols-[1fr_auto]">
