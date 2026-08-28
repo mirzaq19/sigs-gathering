@@ -1,16 +1,25 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Building2, CalendarDays, Search, Star, Users, X } from 'lucide-react';
+import { CalendarDays, Search, Star, Users, X } from 'lucide-react';
 import { ATTENDEES, Attendee } from '@/data/attendees.const';
 import { GENERAL_INFO } from '@/data/general.const';
 import { countDays } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 export default function AttendeesPage() {
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState<Attendee | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const filtered = useMemo(
     () =>
       search.trim()
@@ -96,7 +105,10 @@ export default function AttendeesPage() {
                     <button
                       key={attendee.id}
                       type="button"
-                      onClick={() => setSelected(attendee)}
+                      onClick={() => {
+                        setSelected(attendee);
+                        setDialogOpen(true);
+                      }}
                       className="flex w-full items-center gap-3 border-b border-border px-4 py-4 text-left last:border-0 hover:bg-muted"
                     >
                       <span className="grid size-9 place-items-center rounded-full bg-secondary text-sm font-semibold text-secondary-foreground">
@@ -126,68 +138,69 @@ export default function AttendeesPage() {
           </div>
         </div>
       </section>
-      {selected && (
-        <div
-          role="presentation"
-          className="fixed inset-0 z-50 grid place-items-center bg-primary/60 px-6 backdrop-blur-sm"
-          onClick={() => setSelected(null)}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent
+          showCloseButton={false}
+          className="overflow-hidden rounded-2xl bg-card p-0 sm:max-w-md gap-0"
         >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="ticket-title"
-            className="relative w-full max-w-md overflow-hidden rounded-2xl bg-card shadow-2xl"
-            onClick={event => event.stopPropagation()}
-          >
-            <div className="surface-dark p-7 text-primary-foreground">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-3 top-3 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                aria-label="Tutup"
-                onClick={() => setSelected(null)}
-              >
-                <X />
-              </Button>
-              <p className="section-kicker text-secondary">
-                Guest ticket / 026
-              </p>
-              <h2 id="ticket-title" className="display-serif mt-10 text-4xl">
-                You&apos;re on the list.
-              </h2>
-            </div>
-            <div className="p-7">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                Participant
-              </p>
-              <p className="mt-2 text-2xl font-semibold text-primary">
-                {selected.name}
-              </p>
-              <div className="mt-7 grid grid-cols-2 gap-4 border-t border-dashed border-border pt-5 text-sm">
-                <div>
-                  <p className="text-xs text-muted-foreground">Company</p>
-                  <p className="mt-1 font-medium">{selected.company}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Destination</p>
-                  <p className="mt-1 font-medium">Banyuwangi</p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Date</p>
-                  <p className="mt-1 font-medium">18–20 Sep 2026</p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Status</p>
-                  <p className="mt-1 font-medium text-accent">Confirmed</p>
-                </div>
+          {selected && (
+            <>
+              <div className="surface-dark relative p-7 text-primary-foreground">
+                <DialogClose asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-3 top-3 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                    aria-label="Tutup"
+                  >
+                    <X />
+                  </Button>
+                </DialogClose>
+                <DialogHeader>
+                  <p className="section-kicker text-secondary">
+                    Guest ticket / 026
+                  </p>
+                  <DialogTitle className="display-serif font-normal mt-8 text-left text-4xl">
+                    You&apos;re on the list.
+                  </DialogTitle>
+                  <DialogDescription className="sr-only">
+                    Detail kepesertaan untuk {selected.name}.
+                  </DialogDescription>
+                </DialogHeader>
               </div>
-              <Button className="mt-7 w-full" onClick={() => setSelected(null)}>
-                Siap berangkat
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+              <div className="p-7">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Participant
+                </p>
+                <p className="mt-2 text-2xl font-semibold text-primary">
+                  {selected.name}
+                </p>
+                <div className="mt-7 grid grid-cols-2 gap-4 border-t border-dashed border-border pt-5 text-sm">
+                  <div>
+                    <p className="text-xs text-muted-foreground">Company</p>
+                    <p className="mt-1 font-medium">{selected.company}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Destination</p>
+                    <p className="mt-1 font-medium">Banyuwangi</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Date</p>
+                    <p className="mt-1 font-medium">18–20 Sep 2026</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Status</p>
+                    <p className="mt-1 font-medium text-accent">Confirmed</p>
+                  </div>
+                </div>
+                <DialogClose asChild>
+                  <Button className="mt-7 w-full">Siap berangkat</Button>
+                </DialogClose>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
