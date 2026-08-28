@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
   CheckCircle2,
@@ -16,6 +17,16 @@ const costumeRules = [
   'Setiap perwakilan divisi wajib menyetorkan tema kostum kepada panitia terlebih dahulu untuk menghindari duplikasi.',
   'Pendaftaran tema menggunakan prinsip first come, first served. Divisi yang mendaftar lebih lambat perlu mengganti konsep jika terdapat pengajuan serupa.',
   'Kostum yang dipakai harus sopan.',
+];
+
+const dresscodeExamples = [
+  { src: '/dresscodes/1.png', label: 'Contoh 01' },
+  { src: '/dresscodes/2.png', label: 'Contoh 02' },
+  { src: '/dresscodes/3.png', label: 'Contoh 03' },
+  { src: '/dresscodes/4.png', label: 'Contoh 04' },
+  { src: '/dresscodes/5.png', label: 'Contoh 05' },
+  { src: '/dresscodes/6.png', label: 'Contoh 06' },
+  { src: '/dresscodes/7.png', label: 'Contoh 07' },
 ];
 
 const performanceRules = [
@@ -107,12 +118,44 @@ export default function TeamsPage() {
                 href="https://wa.me/6287712962255"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="font-semibold text-primary hover:underline"
               >
-                <span className="font-semibold text-primary">
-                  (087712962255)
-                </span>
-              </a>
+                (087712962255)
+              </a>{' '}
+              paling lambat{' '}
+              <strong className="text-primary">4 September 2026</strong>.
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <div className="mb-5 flex items-center gap-3">
+              <Palette className="size-5 text-accent" />
+              <h3 className="font-semibold text-primary">Contoh dress code</h3>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              {dresscodeExamples.map((example, index) => (
+                <motion.figure
+                  key={example.src}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="group"
+                >
+                  <div className="relative aspect-square overflow-hidden rounded-xl border border-border bg-background">
+                    <Image
+                      src={example.src}
+                      alt={`Contoh dress code ${index + 1}`}
+                      fill
+                      sizes="(min-width: 1024px) 14vw, (min-width: 640px) 30vw, 45vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <figcaption className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    {example.label}
+                  </figcaption>
+                </motion.figure>
+              ))}
             </div>
           </div>
         </div>
@@ -155,7 +198,8 @@ export default function TeamsPage() {
           <div className="mt-6 flex items-start gap-3 rounded-xl border border-primary-foreground/15 p-5 text-sm leading-6 text-primary-foreground/75">
             <Music2 className="mt-0.5 size-5 shrink-0 text-secondary" />
             <div>
-              Setorkan file musik atau lagu pengiring kepada panitia melalui{' '}
+              Setorkan file musik atau lagu pengiring dan properti kepada
+              panitia melalui{' '}
               <a
                 href="https://wa.me/6287712962255"
                 target="_blank"
@@ -164,7 +208,7 @@ export default function TeamsPage() {
               >
                 <b>WhatsApp Della (087712962255)</b>
               </a>{' '}
-              sebelum acara dimulai.
+              paling lambat <strong>11 September 2026</strong>.
             </div>
           </div>
         </div>
