@@ -1,8 +1,9 @@
 'use client';
 import { motion } from 'motion/react';
-import { MapPin } from 'lucide-react';
+import { InfoIcon, MapPin } from 'lucide-react';
 import { SCHEDULES } from '@/data/schedules.const';
 import { GENERAL_INFO } from '@/data/general.const';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 export default function SchedulePage() {
   const grouped = SCHEDULES.reduce<Record<string, typeof SCHEDULES>>(
     (acc, item) => {
@@ -27,8 +28,18 @@ export default function SchedulePage() {
           </p>
         </div>
       </section>
-      <section className="surface-paper px-6 py-20 lg:px-12">
+      <section className="surface-paper px-6 py-14 lg:px-12">
         <div className="mx-auto max-w-4xl">
+          <Alert className="mb-6">
+            <InfoIcon className="!size-5 mt-0.5" />
+            <AlertTitle className="text-lg font-semibold text-primary">
+              Catatan:
+            </AlertTitle>
+            <AlertDescription className="tracking-wider !text-sm">
+              Waktu pada rundown bersifat tidak pasti dan bisa berubah
+              tergantung pada situasi dan kondisi di lapangan.
+            </AlertDescription>
+          </Alert>
           {Object.entries(grouped).map(([day, items], dayIndex) => (
             <div key={day} className="mb-16">
               <div className="mb-7 flex flex-col md:flex-row gap-4 items-baseline justify-between border-b border-border pb-4">
