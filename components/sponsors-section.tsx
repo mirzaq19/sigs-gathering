@@ -9,80 +9,63 @@ export default function SponsorsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const sponsors = [
+  const sponsors: {
+    name: string;
+    logo: string;
+    tier: string;
+    scale?: 'sm' | 'md' | 'lg' | 'xl';
+    cardWidth?: 'sm' | 'md' | 'lg' | 'xl';
+  }[] = [
     {
-      name: 'PT. Kromtekindo Utama',
-      logo: '/sponsors/kromtekindo.png',
-      tier: 'platinum',
+      name: 'PT. Maja Bintang Indonesia',
+      logo: '/sponsors/maja-bintang.png',
+      tier: 'bronze',
+      scale: 'xl',
+      cardWidth: 'xl',
     },
     {
       name: 'PT. Unitama Analitika Perkasa',
       logo: '/sponsors/unitama.jpeg',
       tier: 'gold',
-    },
-    {
-      name: 'PT. Prolabios Mitra Analitika',
-      logo: '/sponsors/prolabios.png',
-      tier: 'silver',
-    },
-    {
-      name: 'PT. Laborindo Sarana',
-      logo: '/sponsors/laborindo.png',
-      tier: 'silver',
-    },
-    {
-      name: 'PT. Radin Nugrah Daksatama',
-      logo: '/sponsors/radin.png',
-      tier: 'bronze',
-    },
-    {
-      name: 'PT. Elo Karsa Utama',
-      logo: '/sponsors/elokarsa.png',
-      tier: 'bronze',
-    },
-    {
-      name: 'PT. Agarindo Biological Company',
-      logo: '/sponsors/agarindo.png',
-      tier: 'bronze',
+      cardWidth: 'xl',
+      scale: 'lg',
     },
     {
       name: 'PT. Global Satria Aji',
       logo: '/sponsors/gsa.png',
       tier: 'bronze',
+      cardWidth: 'md',
+      scale: 'sm',
     },
     {
       name: 'PT. New Praktika Alkesindo',
       logo: '/sponsors/npa.png',
       tier: 'bronze',
+      scale: 'lg',
     },
     {
-      name: 'PT. Dipa Puspa Labsains',
-      logo: '/sponsors/dipa.png',
-      tier: 'bronze',
-    },
-    {
-      name: 'PT. Sartonet Filtrasi Indonesia',
-      logo: '/sponsors/sartonet.png',
-      tier: 'bronze',
-    },
-    {
-      name: 'CV. Biotek Mandiri',
-      logo: '/sponsors/biotek.png',
-      tier: 'bronze',
-    },
-    {
-      name: 'PT. Murni Jaya Kianabadi',
-      logo: '/sponsors/mjk.jpeg',
-      tier: 'bronze',
-    },
-    {
-      name: 'CV. Kemuning Lestari',
-      logo: '/sponsors/kemuning.jpg',
-      tier: 'bronze',
+      name: 'PT. Laborindo Sarana',
+      logo: '/sponsors/laborindo.png',
+      tier: 'silver',
+      cardWidth: 'xl',
+      scale: 'xl',
     },
     {
       name: 'PT. Arasains',
       logo: '/sponsors/arasains.png',
+      tier: 'bronze',
+      cardWidth: 'lg',
+      scale: 'lg',
+    },
+    {
+      name: 'PT. Radin Nugrah Daksatama',
+      logo: '/sponsors/radin.png',
+      tier: 'bronze',
+      scale: 'lg',
+    },
+    {
+      name: 'PT. Agarindo Biological Company',
+      logo: '/sponsors/agarindo.png',
       tier: 'bronze',
     },
     {
@@ -91,9 +74,53 @@ export default function SponsorsSection() {
       tier: 'bronze',
     },
     {
+      name: 'PT. Kromtekindo Utama',
+      logo: '/sponsors/kromtekindo.png',
+      tier: 'platinum',
+    },
+
+    {
+      name: 'PT. Prolabios Mitra Analitika',
+      logo: '/sponsors/prolabios.png',
+      tier: 'silver',
+      scale: 'sm',
+    },
+
+    {
+      name: 'PT. Elo Karsa Utama',
+      logo: '/sponsors/elokarsa.png',
+      tier: 'bronze',
+    },
+    {
+      name: 'PT. Dipa Puspa Labsains',
+      logo: '/sponsors/dipa.png',
+      tier: 'bronze',
+      scale: 'sm',
+    },
+    {
+      name: 'PT. Sartonet Filtrasi Indonesia',
+      logo: '/sponsors/sartonet.png',
+      tier: 'bronze',
+      scale: 'sm',
+    },
+    {
+      name: 'PT. Murni Jaya Kianabadi',
+      logo: '/sponsors/mjk.jpeg',
+      tier: 'bronze',
+      scale: 'sm',
+    },
+    {
+      name: 'CV. Kemuning Lestari',
+      logo: '/sponsors/kemuning.jpg',
+      tier: 'bronze',
+      scale: 'sm',
+    },
+
+    {
       name: 'PT. Samator Gas Industri',
       logo: '/sponsors/samator.png',
       tier: 'bronze',
+      scale: 'sm',
     },
     {
       name: 'PT. Karunia Jasindo',
@@ -101,11 +128,26 @@ export default function SponsorsSection() {
       tier: 'bronze',
     },
     {
-      name: 'PT. Maja Bintang Indonesia',
-      logo: '/sponsors/majabintang.png',
+      name: 'CV. Biotek Mandiri',
+      logo: '/sponsors/biotek.png',
       tier: 'bronze',
+      scale: 'sm',
     },
   ];
+
+  const scaleClass: Record<string, string> = {
+    sm: 'max-h-8 max-w-[70%] scale-120 group-hover:scale-105',
+    md: 'max-h-full max-w-full group-hover:scale-110',
+    lg: 'max-h-full max-w-full scale-120 group-hover:scale-130',
+    xl: 'max-h-full max-w-full scale-160 group-hover:scale-170',
+  };
+
+  const cardWidthClass: Record<string, string> = {
+    sm: 'w-28',
+    md: 'w-36',
+    lg: 'w-48',
+    xl: 'w-60',
+  };
 
   const platinumSponsors = sponsors.filter(s => s.tier === 'platinum');
   const goldSponsors = sponsors.filter(s => s.tier === 'gold');
@@ -165,14 +207,14 @@ export default function SponsorsSection() {
                   <TooltipTrigger asChild>
                     <motion.div
                       variants={sponsorVariants}
-                      className="group relative flex h-24 items-center justify-center overflow-hidden rounded-xl border border-secondary-foreground/15 bg-background/70 p-4"
+                      className={`group relative flex h-24 items-center justify-center overflow-hidden rounded-xl border border-secondary-foreground/15 bg-background/70 p-4 ${cardWidthClass[sponsor.cardWidth ?? 'md']}`}
                     >
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
                         width={128}
                         height={128}
-                        className="max-h-12 w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        className={`object-contain transition-transform duration-300 ${scaleClass[sponsor.scale ?? 'md']}`}
                         unoptimized
                       />
                     </motion.div>
