@@ -192,8 +192,22 @@ export default function SponsorsSection() {
           </p>
         </div> */}
 
+        <motion.div
+          variants={sponsorVariants}
+          className={`group relative flex h-fit items-center justify-center overflow-hidden rounded-xl border border-secondary-foreground/15 bg-background/70 px-4 pt-6 pb-10`}
+        >
+          <Image
+            src="/sponsors/all.png"
+            alt="sponsors"
+            width={1024}
+            height={1024}
+            className={`object-contain transition-transform duration-300 group-hover:scale-110`}
+            unoptimized
+          />
+        </motion.div>
+
         {/* All Sponsors */}
-        {sponsors.length > 0 && (
+        {/* {sponsors.length > 0 && (
           <motion.div
             variants={sponsorsContainerVariants}
             initial="hidden"
@@ -226,7 +240,7 @@ export default function SponsorsSection() {
               ))}
             </div>
           </motion.div>
-        )}
+        )} */}
 
         {/* Platinum sponsor */}
         {/* {platinumSponsors.length > 0 && (
