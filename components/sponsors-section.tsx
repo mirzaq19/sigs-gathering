@@ -28,7 +28,7 @@ export default function SponsorsSection() {
       logo: '/sponsors/unitama.jpeg',
       tier: 'gold',
       cardWidth: 'xl',
-      scale: 'lg',
+      scale: 'xl',
     },
     {
       name: 'PT. Global Satria Aji',
